@@ -1,0 +1,24 @@
+<!-- Open Graph data -->
+<meta property="og:site_name" content="{{site.title}}">
+<meta property="og:url" content="https://{{site.url}}{{page.url}}">
+{% if page.title %}
+    <meta property="og:title" content="{{page.title}}">
+{% else %}
+    <meta property="og:title" content="Web Portfolio and Web Dev Blogs">
+{% endif %}
+{% if page.description %}
+    <meta property="og:description" content="{{page.description}}">
+{% else %}
+    <meta property="og:description" content="{{site.description}}">
+{% endif %}
+{% if page.url == '/' or page.url == '/blog/' %}
+    <meta property="og:type" content="website">
+{% elsif page.isPost %}
+    <meta property="og:type" content="article">
+{% endif %}
+<meta property="article:publisher" content="https://www.facebook.com/{{site.facebook_username}}" />
+{% if page.isPost %}
+    <meta property="og:image" content="http://{{site.url}}/assets/blog/{{page.image}}">
+{% else %}
+    <meta property="og:image" content="http://{{site.url}}/assets/images/site-screenshot.png">
+{% endif %}

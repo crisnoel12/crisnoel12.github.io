@@ -1,0 +1,154 @@
+// Base styling for classes and ids
+.heading-font {
+    font-family: $heading-font;
+}
+.base-font {
+    font-family: $base-font;
+}
+.color-primary {
+    color: $primary-color;
+}
+.bg-primary {
+    background: $primary-color;
+}
+.header-line {
+    @include header-line(black, 0, auto, 0, auto);
+}
+.btn {
+    @include btn;
+}
+.glyphicon-calendar {
+    margin-right: 3px;
+    color: yellowgreen;
+}
+.glyphicon-bookmark {
+    margin: 0 3px 0 10px;
+    color: orange;
+}
+#to-abt, #to-top{
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-radius: 50%;
+}
+#to-abt {
+    position: absolute;
+    background: rgba(0,0,0,.45);
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+}
+#to-top{
+    position: fixed;
+    display: none;
+    background: rgba($primary-color, .5);
+    margin-right: 35px;
+    top: 93%;
+    right: 0;
+}
+.tooltip-inner {
+    padding: 10px;
+    background: rgba(0,0,0,.85);
+    letter-spacing: 0.1em;
+}
+.tooltip-arrow {
+    border-top-color: rgba(0,0,0,.85) !important;
+}
+.highlighter-rouge {
+    background: whitesmoke;
+    padding-left: 4px !important;
+}
+.excerpt {
+    margin-top: 5px;
+}
+.label-default{
+    background: $secondary-color;
+    letter-spacing: 0.1em;
+}
+/**
+* Bootstrap Carousel
+*/
+.carousel-control {
+    @include carousel-control;
+}
+.carousel-indicators{
+    @include carousel-indicators;
+}
+/**
+* Pages Styling
+**/
+#page-header {
+    & .header-content {
+        margin-top: 80px;
+    }
+    & .header-line {
+        @include header-line($primary-color, 0, auto, 20px, auto);
+    }
+    & .page-desc {
+        margin-bottom: 25px;
+    }
+}
+/**
+* Blog Listing Page
+**/
+#blog-posts {
+    & .listing {
+        position: relative;
+        @include blog-list;
+        & img{
+            max-height: 180px;
+            height: 180px;
+            @media screen and (min-width: 375px){
+                max-height: 216.656px;
+                height: 216.656px;
+            }
+            @media screen and (min-width: 620px){
+                max-height: 368.656px;
+                height: 368.656px;
+            }
+            @media screen and (min-width: 768px){
+                max-height: 216.641px;
+                height: 216.641px;
+            }
+            @media screen and (min-width: 992px){
+                max-height: 182.219px;
+                height: 182.219px;
+            }
+        }
+    }
+}
+.post-info {
+    margin-bottom: 0;
+    & span {
+        font-size: 0.9em !important;
+    }
+}
+.paginator {
+    @include paginator;
+}
+
+.flash-message{
+    background: $primary-color;
+    color: white;
+    margin-top: 51px;
+    @media screen and (min-width:768px){
+        margin-top: 60px;
+    }
+    display: none;
+    p {
+        margin-top: 10px;
+    }
+    button {
+        margin-top: -32px;
+        color: white;
+        opacity: 1;
+    }
+}
+
+#filterBlog{
+    #filterBtn{
+        padding: 2px;
+        margin-top: 0;
+    }
+}

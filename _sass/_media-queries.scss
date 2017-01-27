@@ -1,0 +1,143 @@
+/**
+* Media Queries
+*/
+@media screen and (min-width: 510px) {
+    #quotes blockquote {
+        height: 220px;
+        max-height: 220px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .navbar {
+        padding: 5px;
+        .nav {
+            padding: 0;
+            float: right;
+            & li {
+                padding-top: 15px;
+                & a {
+                    font-size: 1.2em;
+                    text-transform: capitalize;
+                    letter-spacing: initial;
+                    font-family: $heading-font;
+                    &:hover {
+                        color: $primary-color !important;
+                        &:after {
+                            width: 100%;
+                        }
+                    }
+                    &:after {
+                        content: '';
+                        display: block;
+                        border-bottom: 3px solid $primary-color;
+                        width: 0;
+                        -moz-transition: all ease 0.5s;
+                        -webkit-transition: all 0.5s ease;
+                        transition: all 0.5s ease;
+                    }
+                }
+                &.active,
+                &.active a {
+                    background: transparent !important;
+                }
+                &.active a {
+                    color: $primary-color !important;
+                    &:after {
+                        content: '';
+                        display: block;
+                        border-bottom: 3px solid $primary-color;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    
+    .hero-banner {
+        & .name {
+            margin-top: 20px;
+            font-size: 2.813em;
+        }
+        & h3 {
+            font-size: 14px;
+        }
+        & .header-line{
+            width: 125px;
+        }
+    }
+    .section{
+        padding: 80px 15px 120px;
+    }
+    #quotes blockquote {
+        height: 150px;
+        max-height: 150px;
+    }
+    .copyright p {
+        text-align: center;
+        margin-left: 0;
+    }
+    #blog {
+        & .blogs {
+            & .blog {
+                & img {
+                    height: 428.984px;
+                }
+            }
+        }
+    }
+    & .post-links a{
+        font-size: 1em !important;
+        & .glyphicon{
+            margin-top: 3px !important;
+        }
+    }
+    & #page-header {
+        & .header-content {
+            margin-top: 90px;
+            & .post-title {
+                font-size: 3em;
+            }
+        }
+    }
+}
+@media screen and (min-width: 992px) {
+    #blog {
+        & .blogs {
+            & .blog {
+                & img {
+                    height: 214.484px;
+                }
+            }
+        }
+    }
+    #works .work .work-desc {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        opacity: 0;
+        -webkit-transition: all ease 0.5s;
+        -moz-transition: all ease 0.5s;
+        transition: all ease 0.5s;
+        background: rgba($primary-color, .9);
+        color: white;
+        text-align: center;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    #contact {
+        & #map {
+            height: 364px;
+            @-moz-document url-prefix(){
+                height: 381px;
+            }
+        }
+    }
+    .search{
+        & input[name=query]{
+            width: 93.5%;
+        }
+    }
+}

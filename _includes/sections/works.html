@@ -1,0 +1,26 @@
+<!-- Works Section -->
+<div id="works" class="container-fluid section">
+    <div class="row">
+        <h2 class="section-heading">Latest Work</h2>
+        <span class="header-line"></span>
+    </div>
+    <div class="container">
+        <div class="row work-content">
+            {% for work in site.data.works %}
+                <div class="col-sm-4 work">
+                    <a href="{{ work.url }}" target="_blank">
+                        <img src="/assets/portfolio/{{ work.image }}" alt="{{ work.name }} website screenshot." />
+                        <div class="work-desc">
+                            <h4>{{ work.name }}</h4>
+                            <p>{{ work.description }}</p>
+                        </div>
+
+                    </a>
+                    {% for tech in work.techs %}
+                        <span class="label label-default">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

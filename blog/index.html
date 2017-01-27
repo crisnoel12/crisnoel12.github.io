@@ -1,0 +1,50 @@
+---
+layout: page
+title: Blog
+description: Cris Noel's blog posts on web development.
+tagline: Awesome blog posts about web development and stuff. 
+---
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="filterBlog">
+                <div class="form-group col-sm-5">
+                    <label class="sr-only" for="month">Month</label>
+                    <select id="month" class="form-control">
+                        <option value="">by Month</option>
+                    </select>
+                </div>
+                <div class="form-group col-sm-5">
+                    <label class="sr-only" for="year">Year *</label>
+                    <select id="year" class="form-control">
+                        <option value="">by Year</option>
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <button id="filterBtn" class="btn form-control">Filter Posts</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="blog-posts" class="container">
+    <div class="row">
+        {% for post in paginator.posts %}
+            <div class="col-sm-6 col-md-4">
+                <div class="listing">
+                    {% if post.image %}
+                        <img src="/assets/blog/{{ post.image }}" alt="Cris Noel Blog | {{ post.title }} image."/>
+                    {% endif %}
+                    <h3 class="base-font">{{ post.title }}</h3>
+                    {% include _blog-preview.html %}
+                    <a class="btn btn-sm" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <!-- Pagination links -->
+        {% include _paginator.html %}
+    </div>
+</div>

@@ -1,0 +1,12 @@
+---
+layout: default
+---
+{% include sections/home.html %}
+{% include sections/about.html %}
+{% include sections/skills.html %}
+{% include sections/works.html %}
+{% include sections/quotes.html %}
+{% if site.posts.size != 0 %}
+    {% include sections/blog.html %}
+{% endif %}
+{% include sections/contact.html %}

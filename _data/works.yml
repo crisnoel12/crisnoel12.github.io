@@ -1,0 +1,23 @@
+- name: Indulge
+  description: A minimal facebook-like social media project built with laravel. Sign-up, posting and messaging capability.
+  url: https://github.com/crisnoel12/indulge-project
+  image: indulge.png
+  front_end: FOUNDATION
+  interactivity: JAVASCRIPT
+  back_end: LARAVEL
+  techs: ['FOUNDATION', 'JAVASCRIPT', 'LARAVEL']
+
+- name: Eriazan
+  description: A dermatology project showcasing clinic's products and services. Includes admin capabilities.
+  url: https://github.com/crisnoel12/eriazan
+  image: eriazan.png
+  front_end: BOOTSTRAP
+  interactivity: JAVASCRIPT
+  back_end: PHP/SQL
+  techs: ['BOOTSTRAP', 'JAVASCRIPT', 'PHP', SQL]
+
+- name: Toby
+  description: A fun website built for toby the shih tzu, view his pics, videos or play against him in javascript built games.
+  url: https://crisnoel12.github.io/toby/
+  image: toby.jpg
+  techs: ['FOUNDATION', 'JAVASCRIPT']
