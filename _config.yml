@@ -12,7 +12,6 @@ twitter_username: crisnoel12
 markdown: kramdown
 permalink: "/:title"
 gems:
-  - jekyll-feed
   - jekyll-paginate
   - jekyll-archives
 
