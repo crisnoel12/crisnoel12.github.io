@@ -2,7 +2,10 @@
 * Home/Hero Section
 */
 .hero {
-    background: url('/assets/images/hero.jpg') no-repeat center fixed;
+    background-image: url('/assets/images/hero.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     background-size: cover;
     height: 100%;
 }
@@ -232,7 +235,10 @@
 */
 footer {
     padding: 30px 30px 0;
-    background: url('/assets/images/hero.jpg') no-repeat fixed;
+    background-image: url('/assets/images/hero.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     @media screen and (min-width: 768px){
         background-size: cover;
     }
