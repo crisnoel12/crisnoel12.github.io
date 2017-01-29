@@ -30,7 +30,7 @@ gulp.task("minifyStyles", ["concatStyles"], () => {
         .pipe(gulp.dest("css/dist"));
     });
 gulp.task("concatScripts", () => { 
-    return gulp.src(['js/vendor/matchHeight.js', 'js/myNav.js', 'js/myWaypoint.js', 'js/filterPosts.js', 'js/main.js'])
+    return gulp.src(['js/vendor/matchHeight.js', 'js/myNav.js', 'js/myWaypoint.js', 'js/main.js'])
         .pipe(maps.init())
         .pipe(concat("index.js"))
         .pipe(maps.write("./"))
