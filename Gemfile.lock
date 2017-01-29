@@ -48,7 +48,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll (= 3.3.1)
   jekyll-archives
-  jekyll-feed (~> 0.6)
+  jekyll-feed
   jekyll-paginate
 
 RUBY VERSION
