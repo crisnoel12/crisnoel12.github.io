@@ -17,8 +17,10 @@
 {% elsif page.isPost %}
     <meta property="og:type" content="article">
 {% endif %}
-<meta property="article:publisher" content="https://www.facebook.com/{{site.facebook_username}}" />
+
 {% if page.isPost %}
+    <meta property="article:author" content="https://www.facebook.com/{{site.facebook_username}}" />
+    <meta property="article:publisher" content="https://www.facebook.com/{{site.facebook_username}}" />
     <meta property="og:image" content="http://{{site.url}}/assets/blog/{{page.image}}">
 {% else %}
     <meta property="og:image" content="http://{{site.url}}/assets/images/site-screenshot.png">
