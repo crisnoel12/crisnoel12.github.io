@@ -7,6 +7,11 @@ layout: null
     <title>Cris Noel's Blog Posts</title>
     <description>Awesome Blog posts about web development and stuff.</description>
     <link>{{ site.url }}</link>
+    <image>
+      <url>{{"/assets/images/cn-logo.png" | prepend: site.url}}</url>
+      <title>Cris Noel Logo</title>
+      <link>{{ site.url }}</link>
+    </image>
     {% for post in site.posts %}
       {% unless post.draft %}
         <item>
