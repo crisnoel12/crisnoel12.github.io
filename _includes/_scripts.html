@@ -30,3 +30,6 @@
         });
     </script>
 {% endif %}
+{% if jekyll.environment == 'production' %}
+    {% include _analytics.html %}
+{% endif %}
