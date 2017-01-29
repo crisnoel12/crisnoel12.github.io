@@ -28,7 +28,11 @@
                     {% endfor %}
                 </div>
                 <div class="row">
+                    {% if postCount == 1 %}
+                    <div class="col-xs-6 col-xs-offset-3">
+                    {% else %}
                     <div class="col-xs-12">
+                    {% endif %}
                         <a href="blog/" class="btn btn-sm">All Blog Posts</a>
                     </div>
                 </div>
