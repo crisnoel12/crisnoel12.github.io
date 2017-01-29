@@ -580,7 +580,6 @@ body {
   background-image: url("/assets/images/hero.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed;
   background-size: cover;
   height: 100%; }
 
