@@ -13,19 +13,9 @@ markdown: kramdown
 permalink: "/:title"
 gems:
   - jekyll-paginate
-  - jekyll-archives
 
 paginate: 9
 paginate_path: '/blog/page:num/'
-
-jekyll-archives:
-  enabled: ['year', 'month', 'tags']
-  layouts: 
-    year: archive-year
-    month: archive-month
-  permalinks:
-    year: '/blog/archive/:year/'
-    month: '/blog/archive/:year/:month/'
 
 exclude:
   - Gemfile
