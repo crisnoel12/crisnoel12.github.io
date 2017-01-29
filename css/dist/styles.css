@@ -781,7 +781,6 @@ footer {
   @media screen and (min-width: 768px) {
     footer {
       background-position: center;
-      background-attachment: fixed;
       background-size: cover; } }
   footer .social h4 {
     margin-bottom: 30px; }
