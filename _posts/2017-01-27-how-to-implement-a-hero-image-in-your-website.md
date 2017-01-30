@@ -9,7 +9,7 @@ image: post-hero-image-tutorial.png
 Hero images are a growing web design trend seen in most modern websites today. It grabs the visitor's attention due to it's aesthetically pleasing layout. In this tutorial we will look at how to implement a simple hero image as shown above.
 
 ## 1. Picking an Image
-Make sure your image is a high resolution photo, or it might not look so good. If you're downloading an image off the internet, you have to make sure you own the rights to that image, especially if you're going to upload your website to production. [Makerbook][makerbook], which links to different photo hosting websites, has tons of high resolution images that are under the creative commons license, meaning they're 100% free to use.
+Make sure your image is a high resolution photo, or it might not look so good. If you're downloading an image off the internet, you have to make sure you own the rights to that image, especially if you're going to upload your website to production. [Makerbook][makerbook], which links to different photo hosting websites, has tons of high resolution images that are under the creative commons zero license, meaning they're 100% free to use.
 
 [makerbook]: http://makerbook.net/
 
