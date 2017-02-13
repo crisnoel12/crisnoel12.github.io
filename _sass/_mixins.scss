@@ -29,7 +29,6 @@
 
 @mixin table($head-color){
     border-collapse: collapse;
-    width: 100%;
     & thead {
         background: $head-color;
         color: white;
@@ -37,6 +36,11 @@
     & th,
     tr {
         padding: 5px;
+    }
+    @media screen and (min-width: 768px){
+        margin-left: 15px;
+        width: 98% !important;
+        max-width: 98% !important;
     }
 }
 
@@ -116,11 +120,11 @@
 
 @mixin page-selection {
     ::selection {
-        color: white; 
+        color: white;
         background: $primary-color;
     }
     ::-moz-selection {
-        color: white; 
+        color: white;
         background: $primary-color;
     }
 }
@@ -174,7 +178,7 @@
             padding: 5px;
             margin: 0;
             font-size: .8em;
-            &:hover{ 
+            &:hover{
                 border-bottom-color: $primary-color;
             }
             @media screen and (min-width: 768px)  {
