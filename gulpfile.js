@@ -8,7 +8,7 @@ const maps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync');
 const shell = require('gulp-shell');
 
-gulp.task("compileSass", () => { 
+gulp.task("compileSass", () => {
     return gulp.src("_sass/main.scss")
         .pipe(maps.init())
         .pipe(sass())
@@ -16,27 +16,27 @@ gulp.task("compileSass", () => {
         .pipe(maps.write("./"))
         .pipe(gulp.dest("css/dist"));
     });
-gulp.task("concatStyles", ["compileSass"], () => { 
+gulp.task("concatStyles", ["compileSass"], () => {
     return gulp.src(['css/vendor/prism.css', 'css/dist/styles.css'])
         .pipe(maps.init())
         .pipe(concat("styles.css"))
         .pipe(maps.write("./"))
         .pipe(gulp.dest("css/dist"));
     });
-gulp.task("minifyStyles", ["concatStyles"], () => { 
+gulp.task("minifyStyles", ["concatStyles"], () => {
     return gulp.src("css/dist/styles.css")
         .pipe(minifyCss())
         .pipe(rename('styles.min.css'))
         .pipe(gulp.dest("css/dist"));
     });
-gulp.task("concatScripts", () => { 
+gulp.task("concatScripts", () => {
     return gulp.src(['js/vendor/matchHeight.js', 'js/myNav.js', 'js/myWaypoint.js', 'js/main.js'])
         .pipe(maps.init())
         .pipe(concat("index.js"))
         .pipe(maps.write("./"))
         .pipe(gulp.dest("js/dist"));
     });
-gulp.task("minifyScripts", ["concatScripts"], () => { 
+gulp.task("minifyScripts", ["concatScripts"], () => {
     gulp.src("js/dist/index.js")
         .pipe(minifyJs())
         .pipe(rename('index.min.js'))
@@ -46,7 +46,7 @@ gulp.task("minifyScripts", ["concatScripts"], () => {
 /**
  * Build the Jekyll Site
 **/
-gulp.task('jekyll-build', shell.task(['bundle exec jekyll build']));
+gulp.task('jekyll-build', shell.task(['bundle exec jekyll build --drafts']));
 
 /**
  * Rebuild Jekyll & reload
@@ -79,7 +79,7 @@ gulp.task('browser-sync', ['jekyll-build'], () => {
             }  else {
                 next();
             }
-            
+
         });
     });
 });
