@@ -198,14 +198,18 @@ textarea {
   resize: none; }
 
 table {
-  border-collapse: collapse;
-  width: 100%; }
+  border-collapse: collapse; }
   table thead {
     background: #272822;
     color: white; }
   table th,
   table tr {
     padding: 5px; }
+  @media screen and (min-width: 768px) {
+    table {
+      margin-left: 15px;
+      width: 98% !important;
+      max-width: 98% !important; } }
 
 pre {
   background: #272822;
@@ -337,7 +341,7 @@ body {
 .tooltip-arrow {
   border-top-color: rgba(0, 0, 0, 0.85) !important; }
 
-.highlighter-rouge {
+code.highlighter-rouge {
   background: whitesmoke;
   padding-left: 4px !important; }
 
