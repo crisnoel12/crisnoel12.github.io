@@ -845,8 +845,9 @@ footer {
   #blog-posts img,
   #post img {
     width: 100%; }
-  #blog-posts p,
-  #post p {
+  #blog-posts p, #blog-posts li,
+  #post p,
+  #post li {
     letter-spacing: 0.05em;
     font-size: 1.1em;
     line-height: 1.8em; }
