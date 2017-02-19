@@ -25,7 +25,6 @@ exclude:
   - package.json
   - gulpfile.js
   - yarn.lock
-  - firebase.json
   - css/dist/styles.css
   - css/dist/styles.css.map
   - css/vendor/prism.css
