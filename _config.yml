@@ -47,6 +47,7 @@ defaults:
     layout: post
     image: default-blog-img.png
     description: This is the default description. Please add a description field to the corresponding post.
+    excerpt: This is the default excerpt. Please add a description field to the corresponding post.
     isPost: true
 - scope:
     path: ''
@@ -58,6 +59,7 @@ defaults:
     image: default-blog-img.png
     comments: true
     description: This is the default description. Please add a description field to the corresponding post.
+    excerpt: This is the default description. Please add a excerpt field to the corresponding post.
     isPost: true
 - scope:
     path: ''
