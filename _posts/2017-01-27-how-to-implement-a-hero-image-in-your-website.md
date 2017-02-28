@@ -1,6 +1,7 @@
 ---
 title: "How to Implement a Hero Image In Your Website"
-description: "Hero images are a growing web design trend seen in most modern websites today. It grabs the visitor's attention due to it's aesthetically pleasing layout. In this tutorial we will look at how to implement a simple hero image."
+description: "Hero images are a growing web design trend seen in most modern websites today. In this tutorial we will look at how to implement a simple hero image."
+excerpt: "Hero images are a growing web design trend seen in most modern websites today. It grabs the visitor's attention due to it's aesthetically pleasing layout. In this tutorial we will look at how to implement a simple hero image as shown above."
 date: 2017-01-27
 tags: ['html', 'css', 'hero image', 'tutorial']
 image: post-hero-image-tutorial.png

@@ -1,6 +1,7 @@
 ---
 title: "Introduction to the Command Line"
-description: "The command line interface (CLI) is an operating system application where you type in commands to run various tasks. As far as managing files and folders in the GUI, the CLI can do all that, but more. In this lesson we'll learn how to create, rename, delete, copy folders and files, as well as how to move around the filesystem."
+description: "In this lesson we'll learn how to create, rename, delete, copy folders and files, as well as how to move around the filesystem."
+excerpt: "The command line interface (CLI) is an operating system application where you type in commands to run various tasks. As far as managing files and folders in the GUI, the CLI can do all that, but more. In this lesson we'll learn how to create, rename, delete, copy folders and files, as well as how to move around the filesystem."
 date: 2017-02-17
 tags: ['command line', 'terminal', 'unix']
 image: intro-cli.jpg
