@@ -34,18 +34,36 @@
 }
 
 
+.icon-mail:before {
+  content: "\ea83";
+}
 .icon-google-plus2:before {
-    content: "\ea8c";
+  content: "\ea8c";
 }
 .icon-facebook2:before {
-    content: "\ea91";
+  content: "\ea91";
 }
 .icon-twitter:before {
-    content: "\ea96";
+  content: "\ea96";
+}
+.icon-rss2:before {
+  content: "\ea9c";
 }
 .icon-github:before {
-    content: "\eab0";
+  content: "\eab0";
+}
+.icon-tumblr:before {
+  content: "\eab9";
+}
+.icon-reddit:before {
+  content: "\eac6";
+}
+.icon-linkedin:before {
+  content: "\eac9";
+}
+.icon-pinterest:before {
+  content: "\ead1";
 }
 .icon-codepen:before {
-    content: "\eae8";
+  content: "\eae8";
 }
