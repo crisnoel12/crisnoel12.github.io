@@ -12,4 +12,4 @@
         {% endif %}
     </span>
 </div>
-<p class="excerpt">{{ post.excerpt }}</p>
+<p class="excerpt">{{ post.excerpt | truncate:230 }}</p>
