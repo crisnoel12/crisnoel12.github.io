@@ -18,7 +18,7 @@ To follow along in this lesson we will need a unix-based CLI. Why unix? At the t
 Let's open the CLI and start learning.
 For mac and linux users, you'll open an application called **terminal**. If you're on Windows, navigate to where you extracted **cmder** and open the Cmder executable. Once you open the CLI, it should look something like this for Windows users:
 
-![image-title-here](/assets/blog/intro-cli-cmder.jpg)
+![Cris Noel cmder image.](/assets/blog/intro-cli-cmder.jpg)
 
 For Mac and Linux users, the text will look slightly different, it will show your computer's name and username like so:
 
