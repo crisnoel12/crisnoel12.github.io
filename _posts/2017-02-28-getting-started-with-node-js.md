@@ -1,7 +1,7 @@
 ---
 title: "Getting Started With Node.js"
 description: "In this lesson we'll get into the basics of Node and NPM. NPM will help us install different modules used in modern javascript development."
-excerpt: "Node is a javascript runtime environment that was built on top of google chrome's V8 engine. It can be used to build many different things such as web and desktop apps, APIs, real-time applications, games, it can even act as a web server. In this lesson we'll get into the basics of Node and NPM (Node Package Manager). NPM will help us install different modules used in modern javascript development."
+excerpt: "Node is a javascript runtime environment that was built on top of google chrome's V8 engine. It can be used to build many different things such as web and desktop apps, APIs, real-time applications, games, it can even act as a web server. In this lesson we'll get into the basics of Node and NPM (Node Package Manager)."
 date: 2017-02-28
 tags: ['nodejs', 'javascript', 'npm', 'tutorial']
 image: nodejs-getting-started.png
