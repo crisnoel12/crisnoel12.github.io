@@ -17,7 +17,7 @@ gulp.task("compileSass", () => {
         .pipe(gulp.dest("css/dist"));
     });
 gulp.task("concatStyles", ["compileSass"], () => {
-    return gulp.src(['css/vendor/prism.css', 'css/dist/styles.css'])
+    return gulp.src(['css/vendor/animate.min.css', 'css/vendor/prism.css', 'css/dist/styles.css'])
         .pipe(maps.init())
         .pipe(concat("styles.css"))
         .pipe(maps.write("./"))
