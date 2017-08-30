@@ -523,11 +523,6 @@ $(document).ready(function() {
       $('.listing').matchHeight();
     });
 
-    // Hide flash-message on click
-    $(".flash-message button").on("click", function (e) {
-        $('.flash-message').css("display", "none");
-    });
-
     /* 
      * Bootstrap dependencies
     */
