@@ -33,7 +33,7 @@ textarea {
 table {
     @include table($secondary-color);
 }
-pre {
+.highlighter-rouge pre {
     background: #272822;
     color: white;
 }
