@@ -60,6 +60,17 @@ $(document).ready(function() {
             hideTopBtn();
         }
     });
+
+    /*
+     * Add class line-numbers to pre tags
+    */
+    $('figure pre :not(.language-bash)').addClass("line-numbers");
+
+    /*
+     * Add class command-line and attr: data-user="cris" to bash code
+    */
+    $('.language-bash').addClass("command-line");
+    $('pre').attr('data-user', 'cris');
 });
 
 
