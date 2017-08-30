@@ -17,8 +17,10 @@ Node is a javascript runtime environment that was built on top of google chrome'
 
 ## Setup
 First, let's create a folder in the desktop directory or any directory that you prefer. We'll name it `node-intro`.
-    
-    $ mkdir node-intro
+
+{% highlight bash %}
+mkdir node-intro
+{% endhighlight %}
 
 Then, cd into that directory and run `npm init`. It will prompt you to enter some information regarding the project information. For this tutorial it isn't important so let's just enter through it.
 
@@ -29,7 +31,9 @@ NPM is a CLI tool that will help us manage javascript packages necessary for var
 
 ### Installing Packages
 
-    $ npm install <package-name>
+{% highlight bash %}
+npm install <package-name>
+{% endhighlight %}
 
 There are 3 different flags we can append to the end of the install command to save them in different locations:
 *  **Global Flag (-g) -** Packages that you tend to use in multiple projects. Can be used in any directory you're in. Will save in your global packages list.
@@ -43,21 +47,27 @@ Using the CLI inside the `node-intro` directory, let's install 3 different packa
 #### Nodemon
 A utility that restarts server upon code change.
 
-    $ npm install nodemon -g
+{% highlight bash %}
+npm install nodemon -g
+{% endhighlight %}
 
 <br>
 
 #### Express
 A node web framework.
 
-    $ npm install express -S
+{% highlight bash %}
+npm install express -S
+{% endhighlight %}
 
 <br>
 
 #### Webpack
 A front-end module bundler
 
-    $ npm install nodemon -D
+{% highlight bash %}
+npm install nodemon -D
+{% endhighlight %}
 
 After installing **express** and **webpack**, you should notice a **node_modules** folder was created. This holds the express and webpack packages along with their dependencies. Your packages.json should be updated as well and look like this:
 
@@ -85,19 +95,25 @@ A cool little tidbit with the package.json file. When sharing your project with 
 
 ### Updating Packages
 
-    $ npm update <package-name>
+{% highlight bash %}
+npm update <package-name>
+{% endhighlight %}
 
 To view your project's outdated packages, run: `npm outdated`.
 
 ### Uninstalling Packages
 
-    $ npm uninstall <package-name>
+{% highlight bash %}
+npm uninstall <package-name>
+{% endhighlight %}
 
 To remove packages from package.json file, append the necessary flags.
 
 ### Listing Packages
 
-    $ npm list --depth=0
+{% highlight bash %}
+npm list --depth=0
+{% endhighlight %}
 
 When listing packages, npm will list **ALL** the packages in the node_modules or global repository, add the **depth** flag and set it to **0** to view only the top level packages. To view global packages, append the `-g` flag.
 
@@ -109,7 +125,9 @@ With node we can run javascript files and see the output right in CLI. In the `n
 
 Now run: 
 
-    $ node app.js
+{% highlight bash %}
+node app.js
+{% endhighlight %}
 
 We should see **Hello World!** printed in the CLI.
 

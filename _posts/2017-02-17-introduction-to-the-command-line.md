@@ -40,46 +40,60 @@ Now we're ready to run commands. In the command line, type in the command: `pwd`
 ## Changing Directories
 We can change our **current working directory** by using the `cd` command. By default you should be in your user home folder. Let's go into the **desktop** folder.
 
-    $ cd Desktop
+{% highlight bash %}
+cd Desktop
+{% endhighlight %}
 
 If you run `pwd` now, you should notice the path changed to your desktop.
 
 ### Going Up a Directory
 Let's say we want to go back to our home folder. We can go there with two periods `..`
 
-    $ cd ..
+{% highlight bash %}
+cd ..
+{% endhighlight %}
 
 Alternatively, if you're using Mac or Linux, we can achieve the same thing with the tilde character, remember that the tilde refers to the user's home folder.
 
-    $ cd ~
+{% highlight bash %}
+cd ~
+{% endhighlight %}
 
 ### Going Up Multiple Directories
 If you're in two directories of where you want to be, you can navigate back up with two more periods prepended with a forward slash like so:
 
-    $ cd ../..
-
+{% highlight bash %}
+cd ../..
+{% endhighlight %}
 If you're three directories deep, add another backslash and two periods.
 
 ### Going Down Multiple Directories
 Essentially the same as going up, but instead of periods you'll enter the name of the directory.
 
-    $ cd firstDir/secondDir
+{% highlight bash %}
+cd firstDir/secondDir
+{% endhighlight %}
 
 ## Creating a Directory
 We create directories with the `mkdir` command which stands for **Make Directory**. Let's navigate to the desktop and create a directory called **myWebsite**.
 
-    $ mkdir myWebsite
+{% highlight bash %}
+mkdir myWebsite
+{% endhighlight %}
 
 ## Creating Files
 Change directories into **myWebsite**. We will create two files: **index.html** and **main.css** using the `touch` command.
 
-    $ touch index.html main.css
+{% highlight bash %}
+touch index.html main.css
+{% endhighlight %}
 
 ## Listing Files/Folders
 To list files and folders, use the `ls` command, it stands for list.
 
-    $ ls
-
+{% highlight bash %}
+ls
+{% endhighlight %}
 You should see **index.html** and **main.css** listed out.
 
 There are options you can append to the `ls` command to show extra information:
@@ -90,36 +104,48 @@ There are options you can append to the `ls` command to show extra information:
 ## Moving Files/Folders
 Let's reorganize and move the **main.css** file into a **css** folder. Create a **css** folder with the `mkdir` command, make sure your current working directory is **myWebsite**. Now we can move **main.css** with the `mv` command. We type **mv** followed by the file or folder we want to move and then follow that by the directory we want to move it to.
 
-    $ mv main.css css
+{% highlight bash %}
+mv main.css css
+{% endhighlight %}
 
 Cd into the css folder and use the `ls` command. You should see `main.css` relocated.
 
 ## Renaming Files/Folders
 Renaming and moving files/folders are very similar, they both use the `mv` command. Instead of specifying the folder you want to relocate to, you just makeup a name that you want to rename your file/folder. Let's rename **main.css** to **styles.css**.
 
-    $ mv main.css styles.css
+{% highlight bash %}
+mv main.css styles.css
+{% endhighlight %}
 
 Let's run `ls` again to check that we did it correctly.
 
 ## Deleting Files/Folders
 To demonstrate deletion commands, create one new folder named **test** and one new file named **custom.css**. The command we will use is `rm`, it stands for remove and it will completely remove those files/folders from your computer. Let's remove the **custom.css** file.
 
-    $ rm custom.css
+{% highlight bash %}
+rm custom.css
+{% endhighlight %}
 
 For the **test** folder we cant just use `rm`, it will result in an error, we must use the `-r` option which stands for recursively. So run:
 
-    $ rm -r test
+{% highlight bash %}
+rm -r test
+{% endhighlight %}
 
 Double check that they're gone using `ls`.
 
 ## Copying Files/Folders
 If you need to copy a file/folder, use the `cp` command. The syntax for that is `cp folderToBeCopied newCopiedFolder`. Let's recreate the **test** folder and **custom.css** file that we deleted in the last section. Now let's copy **custom.css** into a new file called **custom2.css**.
 
-    $ cp custom.css custom2.css
+{% highlight bash %}
+cp custom.css custom2.css
+{% endhighlight %}
 
 With directories, we have to use the `-r` flag again, or else we'll get an error. Let's recreate the **test** folder into a folder named **test2**.
 
-    $ cp test test2
+{% highlight bash %}
+cp test test2
+{% endhighlight %}
 
 ## Tips and Tricks
 ### Clearing the Command Line
