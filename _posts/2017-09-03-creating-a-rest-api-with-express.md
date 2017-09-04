@@ -280,4 +280,4 @@ router.delete('/:id', function (req, res, next) {
 {% endhighlight %}
 
 ## Conclusion
-And just like that, we have a RESTful API up and running. In order for other domains to interact and fetch data from this API we will have to enable the [cors](https://github.com/expressjs/cors){:target="_blank"} package. CORS stands for **Cross-Origin Resource Sharing**. Domains, by default don't allow other domains to fetch their data, we can remedy this by enabling cors to specific routes or all routes. We will tackle this in a future blog post with a React.js.
+And just like that, we have a RESTful API up and running. In order for other domains to interact and fetch data from this API we will have to enable the [cors](https://github.com/expressjs/cors){:target="_blank"} package. CORS stands for **Cross-Origin Resource Sharing**. Domains, by default don't allow other domains to fetch their data, we can remedy this by enabling cors to specific routes or all routes. We will tackle this in a future blog post with React.js.
