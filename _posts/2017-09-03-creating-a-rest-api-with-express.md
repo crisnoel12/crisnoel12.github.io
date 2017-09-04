@@ -19,7 +19,7 @@ Express is a Node Web Framework that was created to build Web apps and APIs. In 
 ## Directory Structure
 This project will be nice and small. Here's a look at the base files and folders.
 
-    react-todo
+    todo-api
     |--models
     |----todo.js
     |--node_modules
