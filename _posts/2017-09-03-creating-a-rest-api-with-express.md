@@ -281,3 +281,7 @@ router.delete('/:id', function (req, res, next) {
 
 ## Conclusion
 And just like that, we have a RESTful API up and running. In order for other domains to interact and fetch data from this API we will have to enable the [cors](https://github.com/expressjs/cors){:target="_blank"} package. CORS stands for **Cross-Origin Resource Sharing**. Domains, by default don't allow other domains to fetch their data, we can remedy this by enabling cors to specific routes or all routes. We will tackle this in a future blog post with React.js.
+
+<hr />
+{:.row}
+[View Code on GitHub](https://github.com/crisnoel12/express-todo-api){:.btn .col-xs-10 .col-xs-offset-1 .col-md-12 .col-md-offset-0 target="_blank"}
