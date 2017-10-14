@@ -340,40 +340,6 @@ body {
   scrollbar-face-color: firebrick;
   scrollbar-track-color: #272822; }
 
-.tab-container {
-  background: whitesmoke; }
-  @media screen and (min-width: 768px) {
-    .tab-container {
-      margin-left: 15px; } }
-  .tab-container figure {
-    padding-left: 0 !important; }
-  .tab-container .nav-tabs {
-    background: #272822; }
-    .tab-container .nav-tabs li {
-      margin-bottom: 0; }
-  .tab-container .nav-tabs > li.active > a, .tab-container .nav-tabs > li.active > a:focus {
-    border: none; }
-  .tab-container .nav-tabs > li > a {
-    border-radius: 0;
-    color: white;
-    background-color: #272822;
-    border: none;
-    border-bottom: 4px solid #272822;
-    padding: 5px;
-    margin: 0;
-    font-size: .8em; }
-    .tab-container .nav-tabs > li > a:hover {
-      border-bottom-color: firebrick; }
-    @media screen and (min-width: 768px) {
-      .tab-container .nav-tabs > li > a {
-        padding: 15px 10px;
-        font-size: initial; } }
-  .tab-container .nav-tabs > li.active > a, .tab-container .nav-tabs > li.active > a:focus, .tab-container .nav-tabs > li.active > a:hover {
-    cursor: default;
-    color: white;
-    background-color: #272822;
-    border-bottom: 4px solid firebrick; }
-
 .heading-font {
   font-family: "Permanent Marker", cursive; }
 
