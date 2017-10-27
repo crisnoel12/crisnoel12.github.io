@@ -7,12 +7,18 @@
     <div class="container">
         <div class="row work-content">
             {% for work in site.data.works %}
+                {% if site.data.works.size == 4 %}
+                <div class="col-sm-6 work">
+                {% else %}
                 <div class="col-sm-4 work">
+                {% endif %}
                     <a href="{{ work.url }}" target="_blank">
                         <img src="/assets/portfolio/{{ work.image }}" alt="{{ work.name }} website screenshot." />
-                        <div class="work-desc">
-                            <h4>{{ work.name }}</h4>
-                            <p>{{ work.description }}</p>
+                        <div class="work-desc-bg">
+                            <div class="work-desc">
+                                <h3>{{ work.name }}</h3>
+                                <p>{{ work.description }}</p>
+                            </div>
                         </div>
 
                     </a>
