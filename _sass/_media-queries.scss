@@ -110,7 +110,7 @@
             }
         }
     }
-    #works .work .work-desc {
+    #works .work .work-desc-bg {
         position: absolute;
         top: 0;
         width: 100%;
@@ -125,6 +125,13 @@
         text-align: center;
         &:hover {
             opacity: 1;
+        }
+        & .work-desc {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            width: 90%;
         }
     }
     #contact {

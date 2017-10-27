@@ -693,19 +693,19 @@ code.highlighter-rouge {
   margin: 0 auto 5px;
   box-shadow: 5px 5px 8px #777 !important; }
 
-#works .work .work-desc {
+#works .work .work-desc-bg {
   color: black;
   background: white;
   padding: 10px;
   border-top: 4px solid black; }
   @media screen and (min-width: 992px) {
-    #works .work .work-desc {
+    #works .work .work-desc-bg {
       border-top: none; } }
-  #works .work .work-desc h4 {
+  #works .work .work-desc-bg h3 {
     font-family: "Permanent Marker", cursive;
     text-transform: uppercase; }
-  #works .work .work-desc p {
-    letter-spacing: 0.04em; }
+  #works .work .work-desc-bg p {
+    letter-spacing: 0.1em; }
 
 .skill, .work {
   margin-bottom: 20px; }
@@ -1015,7 +1015,7 @@ footer {
 @media screen and (min-width: 992px) {
   #blog .blogs .blog img {
     height: 214.484px; }
-  #works .work .work-desc {
+  #works .work .work-desc-bg {
     position: absolute;
     top: 0;
     width: 100%;
@@ -1028,8 +1028,14 @@ footer {
     background: rgba(178, 34, 34, 0.9);
     color: white;
     text-align: center; }
-    #works .work .work-desc:hover {
+    #works .work .work-desc-bg:hover {
       opacity: 1; }
+    #works .work .work-desc-bg .work-desc {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -40%);
+      width: 90%; }
   #contact #map {
     height: 364px; }
   @-moz-document url-prefix() {

@@ -132,7 +132,7 @@
             margin: 0 auto 5px;
             box-shadow: 5px 5px 8px $grey !important;
         }
-        & .work-desc {
+        & .work-desc-bg {
             color: black;
             background: white;
             padding: 10px;
@@ -140,12 +140,12 @@
             @media screen and (min-width: 992px){
                 border-top: none;
             }
-            & h4 {
+            & h3 {
                 font-family: $heading-font;
                 text-transform: uppercase;
             }
             & p {
-                letter-spacing: 0.04em;
+                letter-spacing: 0.1em;
             }
         }
     }
