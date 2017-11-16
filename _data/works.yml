@@ -24,6 +24,6 @@
 
 - name: LAMP Server
   description: A vagrant + virtualbox LAMP Development starter environment with database backup capability upon vm destroy.
-  url: https://github/crisnoel12/vagrant-lamp-starter/
+  url: https://github.com/crisnoel12/vagrant-lamp-starter/
   image: lamp.png
   techs: ['SHELL SCRIPTING', 'VAGRANT']
