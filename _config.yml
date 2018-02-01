@@ -11,7 +11,7 @@ twitter_username: crisnoel12
 # Build settings
 markdown: kramdown
 permalink: "/:title"
-gems:
+plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
