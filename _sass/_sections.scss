@@ -245,7 +245,10 @@ footer {
     position: relative;
     & .social {
         & h4 {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+        }
+        & svg[class*='fa'] {
+            margin-right: 5px;
         }
         & a {
             color: white;
@@ -253,7 +256,7 @@ footer {
             display: block;
             float: left;
             clear: both;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
             &:last-child{
                 margin-bottom: 0;
             }
