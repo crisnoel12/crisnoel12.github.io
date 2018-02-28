@@ -1,3 +1,9 @@
+- name: WP Timeline Theme
+  description: A WordPress Timeline theme with customization hosted on AWS.
+  url: http://13.57.10.193/
+  image: wp-timeline-theme.png
+  techs: ['BOOTSTRAP4', 'WORDPRESS', 'PHP']
+
 - name: MERN Todo App
   description: A todo web app built using the MERN stack. Deployed and hosted on Heroku.
   url: https://obscure-harbor-38795.herokuapp.com/
