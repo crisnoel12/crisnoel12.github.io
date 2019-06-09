@@ -1,8 +1,15 @@
+- name: Pokemon League
+  description: A React/Redux project that lets you add pokemon to a lineup.
+  url: https://crisnoel12.github.io/pokemon-league
+  image: pokemon-league.png
+  techs: ['REACTJS', 'REDUX', 'REACT-ROUTER', 'POKE-API']
+
 - name: WP Timeline Theme
-  description: A WordPress Timeline theme with customization hosted on AWS.
-  url: http://13.57.10.193/
+  description: A WordPress Timeline theme with customization.
+  url: https://github.com/crisnoel12/wordpress-portfolio-timeline-theme
   image: wp-timeline-theme.png
   techs: ['BOOTSTRAP4', 'WORDPRESS', 'PHP']
+  
 
 - name: MERN Todo App
   description: A todo web app built using the MERN stack. Deployed and hosted on Heroku.
@@ -20,7 +27,13 @@
   description: A dermatology project showcasing clinic's products and services. Includes admin capabilities.
   url: https://github.com/crisnoel12/eriazan
   image: eriazan.png
-  techs: ['BOOTSTRAP', 'JAVASCRIPT', 'PHP', SQL]
+  techs: ['BOOTSTRAP', 'JAVASCRIPT', 'PHP', 'SQL']
+
+- name: Card Memory Game
+  description: A card memory game where user needs to match 8 cards to win.
+  url: https://crisnoel12.github.io/card-memory-game
+  image: card-memory-game.png
+  techs: ['JAVASCRIPT', 'JQUERY']
 
 - name: Toby
   description: A fun website built for toby the shih tzu, view his pics, videos or play against him in javascript built games.
