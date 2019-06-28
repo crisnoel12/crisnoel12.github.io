@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: crisnoel12.github.io
+Token: 30d1b98825b11dfa7dafe7cb0727c9c2b80ef1ddea644878795fc646a7266567
