@@ -39,6 +39,7 @@ exclude:
   - js/myWaypoint.js
   - js/vendor/matchHeight.js
   - debug.log
+  - .nojekyll
 
 defaults:
 - scope:
