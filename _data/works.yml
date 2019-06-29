@@ -1,3 +1,9 @@
+- name: Kushon
+  description: A React/GraphQL project that lets you fetch Anime data, Instagram style.
+  url: https://kushon.herokuapp.com
+  image: kushon.png
+  techs: ['REACTJS', 'GRAPHQL', 'REACT-ROUTER', 'KITSU-API']
+
 - name: Pokemon League
   description: A React/Redux project that lets you add pokemon to a lineup.
   url: https://crisnoel12.github.io/pokemon-league
@@ -10,7 +16,6 @@
   image: wp-timeline-theme.png
   techs: ['BOOTSTRAP4', 'WORDPRESS', 'PHP']
   
-
 - name: MERN Todo App
   description: A todo web app built using the MERN stack. Deployed and hosted on Heroku.
   url: https://obscure-harbor-38795.herokuapp.com/
