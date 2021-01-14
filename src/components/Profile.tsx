@@ -16,9 +16,10 @@ import EmailIcon from "@material-ui/icons/Email";
 
 const useStyles = makeStyles((theme) => ({
   profileSection: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
     textAlign: "center",
-    minHeight: "100vh",
+    height: "100vh",
+    position: "fixed",
     borderRight: "3px solid black",
   },
   avatarContainer: {

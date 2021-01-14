@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 export default function Navbar() {
   const classes = useStyles();
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Toolbar>
         <IconButton>
           <Tooltip title={"Switch to Dark Mode"}>
@@ -32,7 +32,7 @@ export default function Navbar() {
         <div className={classes.navLink}>
           <Link href="#" className={classes.linkRoot}>Experience</Link>
           <Link href="#" className={classes.linkRoot}>Projects</Link>
-          <Link href="#" className={classes.linkRoot}>Skills</Link>
+          <Link href="#" className={classes.linkRoot}>Certifications</Link>
           <Link href="#" className={classes.linkRoot}>Blog</Link>
           <Link href="#" className={classes.linkRoot}>Contact</Link>
         </div>
