@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, CardHeader, Chip, Divider, Grid, Link, List, ListItem, makeStyles, Tab, Tabs, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import { graphql } from 'gatsby';
 import * as React from "react";
 import Experiences from "../components/Experiences";
@@ -9,7 +9,7 @@ import Projects from "../components/Projects";
 const useStyles = makeStyles((theme) => ({
 }));
 
-interface EXPERIENCE {
+export interface EXPERIENCE {
   id: String,
   contentful_id: String,
   position: String,
@@ -17,7 +17,7 @@ interface EXPERIENCE {
   responsibilities: String[]
 }
 
-interface PROJECT {
+export interface PROJECT {
   id: String,
   contentful_id: String,
   title: String,

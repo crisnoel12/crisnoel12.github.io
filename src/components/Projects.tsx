@@ -1,17 +1,7 @@
 import { Grid, Card, CardHeader, Divider, CardContent, Typography, CardActions, Chip, Link, Button, Tabs, Tab, makeStyles } from '@material-ui/core';
 import React from 'react'
 import TabPanel from './Utils/TabPanel';
-
-const PROJECT_TYPE = {
-  WORK: {
-    NAME: "Work",
-    VALUE: 0
-  },
-  PERSONAL: {
-    NAME: "Personal",
-    VALUE: 1
-  }
-}
+import {PROJECT} from '../pages/index';
 
 const useStyles = makeStyles((theme) => ({
   projectTabStyle: {
@@ -67,10 +57,13 @@ const useStyles = makeStyles((theme) => ({
     padding: `${theme.spacing(0)}px ${theme.spacing(1)}px`
   },
   workLinkStyle: {
-    textDecoration: 'none'
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'none'
+    }
   },
   workBtnStyle: {
-    borderRadius: 'none'
+    borderRadius: 0
   },
   technologyChip: {
     marginRight: theme.spacing(0.5),
@@ -84,7 +77,23 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Projects({ workProjects, personalProjects }) {
+const PROJECT_TYPE = {
+  WORK: {
+    NAME: "Work",
+    VALUE: 0
+  },
+  PERSONAL: {
+    NAME: "Personal",
+    VALUE: 1
+  }
+}
+
+interface Props {
+  workProjects: PROJECT[],
+  personalProjects: PROJECT[]
+}
+
+export default function Projects({ workProjects, personalProjects }: Props) {
   const classes = useStyles();
   const [projectTab, setProjectTab] = React.useState(PROJECT_TYPE.WORK.VALUE);
 
@@ -101,7 +110,7 @@ export default function Projects({ workProjects, personalProjects }) {
                 subheader={<Divider />}
               />
               <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography variant="body1" color="textSecondary" component="p">
                   {project.description.description}
                 </Typography>
               </CardContent>
@@ -120,7 +129,14 @@ export default function Projects({ workProjects, personalProjects }) {
                   target="_blank"
                   rel="noopener"
                 >
-                  <Button fullWidth variant={"contained"} className={classes.workBtnStyle}>View</Button>
+                  <Button 
+                    fullWidth 
+                    variant={"contained"} 
+                    classes={{ root: classes.workBtnStyle }}
+                    color={"secondary"}
+                  >
+                      View
+                    </Button>
                 </Link>
               </CardActions>
             </Card>

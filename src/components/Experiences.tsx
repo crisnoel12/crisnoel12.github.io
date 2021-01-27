@@ -1,5 +1,6 @@
-import { Typography, List, ListItem, Divider, makeStyles } from '@material-ui/core'
+import { Typography, List, ListItem, ListItemText, Divider, makeStyles } from '@material-ui/core'
 import React from 'react'
+import {EXPERIENCE} from '../pages/index';
 
 const useStyles = makeStyles((theme) => ({
   position_company: {
@@ -16,7 +17,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Experiences({ experiences }) {
+interface Props {
+  experiences: EXPERIENCE[]
+}
+
+export default function Experiences({experiences}: Props) {
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -29,7 +34,9 @@ export default function Experiences({ experiences }) {
             </Typography>
             <List classes={{ root: classes.listRoot }}>
               {experience.responsibilities.map(responsibility => (
-                <ListItem className={classes.listItemRoot}>{responsibility}</ListItem>
+                <ListItem className={classes.listItemRoot}>
+                  <ListItemText>{responsibility}</ListItemText>
+                </ListItem>
               ))}
             </List>
             <Divider />

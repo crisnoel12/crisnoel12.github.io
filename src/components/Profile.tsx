@@ -5,6 +5,9 @@ import {
   Typography,
   Card,
   IconButton,
+  Paper,
+  Divider,
+  Button
 } from "@material-ui/core";
 import React from "react";
 import AvatarPicture from "../images/profile_picture.jpg";
@@ -16,11 +19,14 @@ import EmailIcon from "@material-ui/icons/Email";
 
 const useStyles = makeStyles((theme) => ({
   profileSection: {
-    padding: theme.spacing(4),
     textAlign: "center",
     height: "100vh",
     position: "fixed",
-    borderRight: "3px solid black",
+    borderRight: `3px solid black`,
+  },
+  profileSectionPaper: {
+    padding: theme.spacing(4),
+    height: "100%",
   },
   avatarContainer: {
     justifyContent: "center",
@@ -34,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
   about: {
     marginTop: theme.spacing(2),
   },
+  cardRoot: {
+    height: '100%',
+    padding: theme.spacing(0.2)
+  }
 }));
 
 export default function Profile() {
@@ -41,59 +51,53 @@ export default function Profile() {
 
   return (
     <Grid item xs={12} sm={3} className={classes.profileSection}>
-      <div className={classes.avatarContainer}>
-        <Avatar
-          alt="Cris Cancino"
-          src={AvatarPicture}
-          className={classes.avatarPicture}
-        />
-      </div>
-      <Typography variant="h4" color="textSecondary" gutterBottom>
-        Cris N. Cancino
-      </Typography>
-      <Grid container spacing={1}>
-        <Grid item xs={6}>
-          <Card>
-            <WorkIcon />
-            <Typography variant="subtitle1" color="textSecondary" gutterBottom>
-              Software Engineer
-            </Typography>
-          </Card>
-        </Grid>
-        <Grid item xs={6}>
-          <Card>
-            <LocationOnIcon />
-            <Typography variant="subtitle1" color="textSecondary" gutterBottom>
-              Los Angeles, CA
-            </Typography>
-          </Card>
-        </Grid>
-      </Grid>
-      <Typography className={classes.about}>
-        What's up, I'm Cris and I'm a Software Engineer currently based in Los
-        Angeles, CA. I have a passion for building websites and learning more
-        about new frameworks and languages that I haven't mastered yet. I'm well
-        versed in both front-end and back-end development. I'm currently
-        accepting freelance work, if you're in need of a website, I'm your guy,
-        feel free to Contact me.
-      </Typography>
-      <IconButton
-        onClick={() =>
-          window.open("https://www.linkedin.com/in/crisncancino/", "_blank")
-        }
-      >
-        <LinkedInIcon />
-      </IconButton>
-      <IconButton
-        onClick={() => window.open("https://github.com/crisnoel12", "_blank")}
-      >
-        <GitHubIcon />
-      </IconButton>
-      <IconButton
-        onClick={() => window.open("mailto:crisncancino@gmail.com", "_blank")}
-      >
-        <EmailIcon />
-      </IconButton>
+      <Paper square={true} classes={{ root: classes.profileSectionPaper}}>
+        <div className={classes.avatarContainer}>
+          <Avatar
+            alt="Cris Cancino"
+            src={AvatarPicture}
+            className={classes.avatarPicture}
+          />
+        </div>
+        <Typography variant="h4" gutterBottom>
+          Cris N. Cancino
+        </Typography>
+        <Divider />
+        <Typography className={classes.about}>
+          What's up, I'm Cris and I'm a Software Engineer currently based in Los
+          Angeles, CA. I have a passion for building websites and learning more
+          about new frameworks and languages that I haven't mastered yet. I'm well
+          versed in both front-end and back-end development. I'm currently
+          accepting freelance work, if you're in need of a website, I'm your guy,
+          feel free to Contact me.
+        </Typography>
+        <Button
+          color={"secondary"}
+          variant={"contained"}
+          fullWidth
+          style={{ marginTop: '8px', marginBottom: '8px' }}
+        >
+          Download Resume (.PDF)
+        </Button>
+        <Divider />
+        <IconButton
+          onClick={() =>
+            window.open("https://www.linkedin.com/in/crisncancino/", "_blank")
+          }
+        >
+          <LinkedInIcon color="primary"  />
+        </IconButton>
+        <IconButton
+          onClick={() => window.open("https://github.com/crisnoel12", "_blank")}
+        >
+          <GitHubIcon color="primary" />
+        </IconButton>
+        <IconButton
+          onClick={() => window.open("mailto:crisncancino@gmail.com", "_blank")}
+        >
+          <EmailIcon color="primary" />
+        </IconButton>
+      </Paper>
     </Grid>
   );
 }
