@@ -1,7 +1,8 @@
 import { Grid, Card, CardHeader, Divider, CardContent, Typography, CardActions, Chip, Link, Button, Tabs, Tab, makeStyles } from '@material-ui/core';
 import React from 'react'
-import TabPanel from './Utils/TabPanel';
-import {PROJECT} from '../pages/index';
+import TabPanel from '../Layouts/TabPanel';
+import {PROJECT} from '../../pages/index';
+import HomePageSection from '../Layouts/HomePageSection';
 
 const useStyles = makeStyles((theme) => ({
   projectTabStyle: {
@@ -56,12 +57,6 @@ const useStyles = makeStyles((theme) => ({
   workTechnologyContainer: {
     padding: `${theme.spacing(0)}px ${theme.spacing(1)}px`
   },
-  workLinkStyle: {
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'none'
-    }
-  },
   workBtnStyle: {
     borderRadius: 0
   },
@@ -103,7 +98,7 @@ export default function Projects({ workProjects, personalProjects }: Props) {
     if (projectType === PROJECT_TYPE.WORK.VALUE) {
       return (
         workProjects && workProjects.length > 0 ? workProjects.map(project => (
-          <Grid item xs={2} sm={4}>
+          <Grid item xs={12} md={6} lg={4}>
             <Card className={classes.workProjectContainer}>
               <CardHeader
                 title={project.title}
@@ -124,8 +119,7 @@ export default function Projects({ workProjects, personalProjects }: Props) {
                 </div>
                 <Divider className={classes.divider} />
                 <Link 
-                  href={project.url} 
-                  className={classes.workLinkStyle}
+                  href={project.url}
                   target="_blank"
                   rel="noopener"
                 >
@@ -133,7 +127,7 @@ export default function Projects({ workProjects, personalProjects }: Props) {
                     fullWidth 
                     variant={"contained"} 
                     classes={{ root: classes.workBtnStyle }}
-                    color={"secondary"}
+                    color={"primary"}
                   >
                       View
                     </Button>
@@ -146,7 +140,7 @@ export default function Projects({ workProjects, personalProjects }: Props) {
     } else { // Personal Project
       return (
         personalProjects && personalProjects.length > 0 ? personalProjects.map(project => (
-          <Grid item xs={2} sm={4}>
+          <Grid item xs={12} md={6} lg={4}>
             <Link 
               href={project.url} 
               classes={{ root: classes.personalProjectContainer}}
@@ -170,25 +164,24 @@ export default function Projects({ workProjects, personalProjects }: Props) {
     }
   }
   return (
-    <React.Fragment>
-      <Typography variant={"h4"} gutterBottom>Projects</Typography>
-        <Tabs
-          value={projectTab}
-          onChange={changeProjectTab}
-          indicatorColor="primary"
-          textColor="primary"
-          centered
-          className={classes.projectTabStyle}
-        >
-          <Tab label={PROJECT_TYPE.WORK.NAME} />
-          <Tab label={PROJECT_TYPE.PERSONAL.NAME} />
-        </Tabs>
-        <TabPanel value={projectTab} index={0} className={classes.tabPanelStyle}>
-          {renderProjectType(PROJECT_TYPE.WORK.VALUE)}
-        </TabPanel>
-        <TabPanel value={projectTab} index={1} className={classes.tabPanelStyle}>
-          {renderProjectType(PROJECT_TYPE.PERSONAL.VALUE)}
-        </TabPanel>
-    </React.Fragment>
+    <HomePageSection title={"Projects"}>
+      <Tabs
+        value={projectTab}
+        onChange={changeProjectTab}
+        indicatorColor="primary"
+        textColor="primary"
+        centered
+        className={classes.projectTabStyle}
+      >
+        <Tab label={PROJECT_TYPE.WORK.NAME} />
+        <Tab label={PROJECT_TYPE.PERSONAL.NAME} />
+      </Tabs>
+      <TabPanel value={projectTab} index={0} className={classes.tabPanelStyle}>
+        {renderProjectType(PROJECT_TYPE.WORK.VALUE)}
+      </TabPanel>
+      <TabPanel value={projectTab} index={1} className={classes.tabPanelStyle}>
+        {renderProjectType(PROJECT_TYPE.PERSONAL.VALUE)}
+      </TabPanel>
+    </HomePageSection>
   )
 }

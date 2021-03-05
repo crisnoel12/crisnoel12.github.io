@@ -5,11 +5,6 @@ const contentfulConfig = {
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 }
 
-const imagesConfig = {
-  name: "images",
-  path: "./src/images/",
-}
-
 const pagesConfig = {
   name: "pages",
   path: "./src/pages/",
@@ -41,11 +36,6 @@ module.exports = {
       options: {
         icon: "src/images/icon.png",
       },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: imagesConfig,
-      __key: "images",
     },
     {
       resolve: "gatsby-source-filesystem",

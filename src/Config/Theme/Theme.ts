@@ -1,8 +1,7 @@
-import { createMuiTheme, Theme } from '@material-ui/core/styles';
+import { createMuiTheme, createStyles, Theme } from '@material-ui/core/styles';
 
 const baseStyles = {
   palette: {
-    type: "light",
     primary: {
       light: '#d10404',
       main: '#ab0202', // firebrick
@@ -10,15 +9,45 @@ const baseStyles = {
       contrastText: '#fff'
     },
     secondary: {
-      light: '#8e8b89',
+      light: '#8e8b8a',
       main: '#706d6b', // pewter
       dark: '#494746',
       contrastText: '#fff'
     },
     background: {
-      paper: 'whitesmoke',
-      default: 'whitesmoke'
+      paper: 'white',
+      default: 'white'
     }
+  },
+  overrides: {
+    MuiInputBase: createStyles({
+      root: {
+        background: 'whitesmoke',
+        '&&:focus': {
+          background: 'whitesmoke',
+        },
+        '&&:hover': {
+          background: 'whitesmoke',
+        }
+      }
+    }),
+    MuiCard: createStyles({
+      root: {
+        backgroundColor: 'whitesmoke'
+      }
+    }),
+    MuiLink: createStyles({
+      root: {
+        '&:hover': {
+          textDecoration: 'none !important'
+        }
+      }
+    }),
+    MuiButton: createStyles({
+      root: {
+        textTransform: 'none'
+      }
+    })
   },
   typography: {
     fontFamily: `Montserrat, 'sans-serif'`,
@@ -47,7 +76,7 @@ export const light: Theme = createMuiTheme({
   ...baseStyles,
   palette: {
     ...baseStyles.palette,
-    type: "light",
+    type: "light"
   },
 });
 
@@ -60,6 +89,25 @@ export const dark: Theme = createMuiTheme({
       paper: '#111',
       default: '#111'
     }
+  },
+  overrides: {
+    ...baseStyles.overrides,
+    MuiInputBase: createStyles({
+      root: {
+        backgroundColor: '#303030',
+        '&&:focus': {
+          backgroundColor: '#303030',
+        },
+        '&&:hover': {
+          backgroundColor: '#303030',
+        }
+      }
+    }),
+    MuiCard: createStyles({
+      root: {
+        backgroundColor: '#171717'
+      }
+    })
   },
 });
 

@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import {
   Grid,
-  Paper
+  Paper,
 } from "@material-ui/core";
 import "../../styles/global.css";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
-import Profile from "../Profile";
+import Profile from "./Profile";
 import {theme} from "../../Config/Theme/Theme";
 import darkmodejs from '@assortment/darkmodejs';
+import Footer from "../Sections/Footer";
+import { getLocalStorageItem, setLocalStorageItem } from '../Utils/index';
 
 export enum MODE {
   DARK = 'dark',
@@ -25,53 +27,65 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MainContainer = (props) => {
-  const [themeMode, setThemeMode] = useState(MODE.LIGHT);
+  const [themeMode, setThemeMode] = useState(MODE.DARK);
   const classes = useStyles();
 
   const onChange = (activeTheme: MODE, themes) => {
     switch (activeTheme) {
       case MODE.DARK:
         setThemeMode(MODE.DARK);
-        console.log('darkmode enabled');
+        setLocalStorageItem("themeMode", MODE.DARK)
         break;
       case MODE.LIGHT:
         setThemeMode(MODE.LIGHT);
-        console.log('lightmode enabled');
+        setLocalStorageItem("themeMode", MODE.LIGHT)
         break;
       case MODE.NO_PREF:
         setThemeMode(MODE.LIGHT);
-        console.log('no preference enabled');
+        setLocalStorageItem("themeMode", MODE.LIGHT)
         break;
       case MODE.NO_SUPP:
         setThemeMode(MODE.LIGHT);
-        console.log('no support sorry');
+        setLocalStorageItem("themeMode", MODE.LIGHT)
         break;
     }
   };
 
   useEffect(() => {
-    const dmjs = darkmodejs({ onChange });
+    const localStorageThemeMode = getLocalStorageItem("themeMode") as MODE;
+    if (!localStorageThemeMode) {
+      const dmjs = darkmodejs({ onChange });
     
-    return () => {
-      dmjs.removeListeners();
+      return () => {
+        dmjs.removeListeners();
+      }
+    } else {
+      if (localStorageThemeMode === MODE.DARK) {
+        setThemeMode(MODE.DARK)
+      } else {
+        setThemeMode(MODE.LIGHT)
+      }
     }
   }, []);
 
   const MainContent = () => (
-    <Grid item xs={12} sm={9}>
-      <Navbar themeMode={themeMode} changeMode={onChange}/>
+    <Grid item xs={12} md={7} lg={9}>
+      <Navbar themeMode={themeMode} changeMode={onChange} />
       <Paper component={Grid} className={classes.mainContent}>
         {props.children}
       </Paper>
+      <Footer />
     </Grid>
   )
   return (
     <ThemeProvider theme={theme[themeMode]}>
-      <Grid container>
-        <Profile />
-        <Grid item xs={12} sm={3} />
-        {MainContent()}
-      </Grid>
+      <Paper square={true} elevation={0} style={{ height: '100vh'}}>
+        <Grid container>
+          <Profile themeMode={themeMode} changeMode={onChange} />
+          <Grid item xs={12} md={5} lg={3} />
+          {MainContent()}
+        </Grid>
+      </Paper>
     </ThemeProvider>
   );
 };

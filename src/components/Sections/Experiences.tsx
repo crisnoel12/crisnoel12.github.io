@@ -1,6 +1,7 @@
-import { Typography, List, ListItem, ListItemText, Divider, makeStyles } from '@material-ui/core'
+import { Typography, List, ListItem, ListItemText, Divider, makeStyles, Card } from '@material-ui/core'
 import React from 'react'
-import {EXPERIENCE} from '../pages/index';
+import {EXPERIENCE} from '../../pages/index';
+import HomePageSection from '../Layouts/HomePageSection';
 
 const useStyles = makeStyles((theme) => ({
   position_company: {
@@ -24,13 +25,12 @@ interface Props {
 export default function Experiences({experiences}: Props) {
   const classes = useStyles();
   return (
-    <React.Fragment>
-      <Typography variant={"h4"} gutterBottom>Experience</Typography>
+    <HomePageSection title={"Experience"}>
       {
         experiences && experiences.map(experience => (
-          <React.Fragment>
+          <Card style={{ padding: '24px', marginBottom: '24px'}}>
             <Typography variant="h5" className={classes.position_company}>
-              {experience.position} - {experience.company}
+              {experience.position} <Typography variant="inherit" color={"primary"}>@</Typography> {experience.company}
             </Typography>
             <List classes={{ root: classes.listRoot }}>
               {experience.responsibilities.map(responsibility => (
@@ -39,10 +39,9 @@ export default function Experiences({experiences}: Props) {
                 </ListItem>
               ))}
             </List>
-            <Divider />
-          </React.Fragment>
+          </Card>
         ))
       }
-    </React.Fragment>
+    </HomePageSection>
   )
 }
