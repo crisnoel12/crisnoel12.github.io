@@ -7,6 +7,11 @@ import Excerpt from '../components/Utils/Excerpt'
 import HeaderLine from '../components/Utils/HeaderLine'
 
 const useStyles = makeStyles((theme) => ({
+  card: {
+    height: '100%', 
+    padding: `${theme.spacing(2)}px ${theme.spacing(2)}px 0`, 
+    textAlign: "center"
+  }
 }));
 
 const BlogPage = ({ data }) => {
@@ -19,10 +24,10 @@ const BlogPage = ({ data }) => {
       <Grid container spacing={4}>
         {posts.map(post => {
           const { title, date, image, content, slug } = post;
-          let excerpt = JSON.parse(post.content.raw).content.find(obj => obj.nodeType === "paragraph").content[0].value;
+          const excerpt = JSON.parse(post.content.raw).content.find(obj => obj.nodeType === "paragraph").content[0].value;
           return (
             <Grid item xs={6} lg={4}>
-              <Card style={{ height: '100%', padding: '16px 16px 0', textAlign: "center"}}>
+              <Card className={classes.card}>
                 <img width="100%" height="180px" src={`https://${image.file.url}`} />
                 <Typography variant={"h5"}>{title}</Typography>
                 <BlogPostPreviewMisc date={date} content={content.raw} />

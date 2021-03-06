@@ -5,6 +5,9 @@ import React from 'react';
 import HeaderLine from '../Utils/HeaderLine';
 
 const useStyles = makeStyles((theme) => ({
+  divider: {
+    margin: `${theme.spacing(5)}px 0`
+  }
 }));
 
 export default function HomePageSection(props) {
@@ -16,7 +19,7 @@ export default function HomePageSection(props) {
       <HeaderLine />
       {props.children}
       { divider === undefined || divider ? (
-          <Divider style={{ margin: '40px 0'}} />
+          <Divider className={classes.divider} />
         ) : (
           null
         ) 

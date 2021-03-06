@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     borderTop: "3px solid black",
     color: `${theme.palette.type === "light" ? 'black' : 'white'}`,
     borderRadius: '0px'
-  }
+  },
 }));
 
 export default function Footer() {
@@ -19,13 +19,13 @@ export default function Footer() {
   const year = d.getFullYear();
 
   return (
-    <Paper style={{ borderRadius: '0'}}>
+    <Paper square>
       <AppBar 
         position={"relative"} 
         color={"secondary"}
         className={classes.root}
       >
-        <Typography variant={"caption"}>{year} <span style={{ fontWeight: 'bold'}}>©</span> CRIS N. CANCINO </Typography>
+        <Typography variant={"caption"}>{year} <span>©</span> CRIS N. CANCINO </Typography>
       </AppBar>
     </Paper>
   )

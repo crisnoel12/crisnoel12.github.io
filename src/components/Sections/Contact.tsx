@@ -105,9 +105,6 @@ export default function Contact() {
             fullWidth 
             variant="filled" 
             required 
-            InputProps={{
-              // className: isDarkMode ? classes.inputDark : classes.input,
-            }}
           />
           <TextField 
             id="email"
@@ -120,9 +117,6 @@ export default function Contact() {
             fullWidth 
             variant="filled" 
             required 
-            InputProps={{
-              // className: isDarkMode ? classes.inputDark : classes.input,
-            }}
           />
           <TextField 
             id="message"
@@ -136,9 +130,6 @@ export default function Contact() {
             multiline={true}
             rows={8}
             required
-            InputProps={{
-              // className: isDarkMode ? classes.inputDark : classes.input,
-            }}
           />
           <div className={classes.buttonGroup}>
             <Button 

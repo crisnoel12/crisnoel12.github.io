@@ -1,4 +1,4 @@
-require('dotenv').config({ path: `.env` })
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: "src/images/favicon.png",
       },
     },
     {

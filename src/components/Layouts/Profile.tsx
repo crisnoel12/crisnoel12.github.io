@@ -51,6 +51,20 @@ const useStyles = makeStyles((theme) => ({
   cardRoot: {
     height: '100%',
     padding: theme.spacing(0.2)
+  },
+  logoContainer: {
+    textAlign: 'left', 
+    display: 'flex', 
+    alignItems: 'center'
+  },
+  themeSwitchContainer: {
+    textAlign: 'right'
+  },
+  divider: {
+    margin: `${theme.spacing(1)}px 0`
+  },
+  resume: {
+    marginTop: theme.spacing(2)
   }
 }));
 
@@ -63,12 +77,12 @@ export default function Profile({ themeMode, changeMode }) {
       <Grid item xs={12} md={5} lg={3} className={classes.profileSection}>
         <Paper square={true} elevation={0} classes={{ root: classes.profileSectionPaper}}>
           <Grid container>
-            <Grid item xs={6} style={{ textAlign: 'left', display: 'flex', alignItems: 'center' }}>
+            <Grid item xs={6} className={classes.logoContainer}>
               <Link href={"/"}>
                 <img src={theme.palette.type === "light" ? LogoBlack : Logo} />
               </Link>
             </Grid>
-            <Grid item xs={6} style={{ textAlign: 'right' }}>
+            <Grid item xs={6} className={classes.themeSwitchContainer}>
               <Hidden mdUp>
                 <ThemeSwitch themeMode={themeMode} handleChangeMode={changeMode} />
               </Hidden>
@@ -84,7 +98,7 @@ export default function Profile({ themeMode, changeMode }) {
           <Typography variant="h4" gutterBottom>
             Cris N. Cancino
           </Typography>
-          <Divider style={{ margin: '8px 0px'}} />
+          <Divider className={classes.divider} />
           <Typography className={classes.about}>
             What's up, I'm Cris and I'm a Software Engineer currently based in Los
             Angeles, CA. I have a passion for building websites and learning more
@@ -96,18 +110,18 @@ export default function Profile({ themeMode, changeMode }) {
           <Link
             target="_blank"
             rel="noopener"
-            href="https://docs.google.com/document/d/1yONEvHTSa9JDd5seiv_0dJKJW2ZSvYVQwebSJFd4Nlw/edit?usp=sharing"
+            href={process.env.RESUME}
           >
             <Button
               color={"secondary"}
               variant={"contained"}
               fullWidth
-              style={{ marginTop: '16px' }}
+              className={classes.resume}
             >
               View Resume
             </Button>
           </Link>
-          <Divider style={{ margin: '8px 0px'}} />
+          <Divider className={classes.divider} />
           <IconButton
             onClick={() =>
               window.open("https://www.linkedin.com/in/crisncancino/", "_blank")

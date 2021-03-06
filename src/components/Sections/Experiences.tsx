@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
   },
   listItemRoot: {
     display: 'list-item'
+  },
+  card: {
+    padding: theme.spacing(3), 
+    marginBottom: theme.spacing(3)
   }
 }));
 
@@ -28,7 +32,7 @@ export default function Experiences({experiences}: Props) {
     <HomePageSection title={"Experience"}>
       {
         experiences && experiences.map(experience => (
-          <Card style={{ padding: '24px', marginBottom: '24px'}}>
+          <Card className={classes.card}>
             <Typography variant="h5" className={classes.position_company}>
               {experience.position} <Typography variant="inherit" color={"primary"}>@</Typography> {experience.company}
             </Typography>

@@ -20,6 +20,9 @@ export enum MODE {
 }
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    height: '100vh'
+  },
   mainContent: {
     padding: theme.spacing(4),
     borderRadius: 0
@@ -79,7 +82,7 @@ const MainContainer = (props) => {
   )
   return (
     <ThemeProvider theme={theme[themeMode]}>
-      <Paper square={true} elevation={0} style={{ height: '100vh'}}>
+      <Paper square={true} elevation={0} className={classes.root}>
         <Grid container>
           <Profile themeMode={themeMode} changeMode={onChange} />
           <Grid item xs={12} md={5} lg={3} />

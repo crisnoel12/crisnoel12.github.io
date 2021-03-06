@@ -1,7 +1,13 @@
 import * as React from "react";
-import { Paper, Typography, Link, Grid, Button } from "@material-ui/core";
+import { Paper, Typography, Link, Grid, Button, makeStyles } from "@material-ui/core";
 import MainContainer from "../components/Layouts/MainContainer";
 
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    height: 'calc(100vh - 201px)'
+  }
+}));
 // markup
 const NotFoundPage = () => {
   return (
