@@ -18,6 +18,11 @@ const googleFontsConfig = {
   display: 'swap'
 }
 
+const braveConfig = {
+  token: process.env.BRAVE_REWARDS_TOKEN,
+  domain: process.env.DOMAIN
+}
+
 module.exports = {
   siteMetadata: {
     title: "Cris Noel",
@@ -50,5 +55,9 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: contentfulConfig,
     },
+    {
+      resolve: "gatsby-plugin-verify-brave",
+      options: braveConfig
+    }
   ],
 };
