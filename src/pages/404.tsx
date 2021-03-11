@@ -1,19 +1,29 @@
 import * as React from "react";
 import { Paper, Typography, Link, Grid, Button, makeStyles } from "@material-ui/core";
 import MainContainer from "../components/Layouts/MainContainer";
+import Helmet from "react-helmet";
 
 
 const useStyles = makeStyles(theme => ({
   root: {
     height: 'calc(100vh - 201px)'
+  },
+  center: {
+    textAlign: 'center'
   }
 }));
 // markup
 const NotFoundPage = () => {
+  const classes = useStyles();
   return (
     <MainContainer>
-      <Grid container justify={"center"} style={{ height: 'calc(100vh - 201px)'}}>
-        <div style={{ textAlign: 'center' }}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Cris Noel | 404</title>
+        <link rel="canonical" href={`${process.env.DOMAIN}/404`} />
+      </Helmet>
+      <Grid container justify={"center"} className={classes.root}>
+        <div className={classes.center}>
           <iframe 
             title={"404"} 
             src="https://giphy.com/embed/VwoJkTfZAUBSU" 

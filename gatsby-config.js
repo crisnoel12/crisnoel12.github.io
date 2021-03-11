@@ -26,6 +26,7 @@ const braveConfig = {
 module.exports = {
   siteMetadata: {
     title: "Cris Noel",
+    siteUrl: "https://crisnoel12.github.io"
   },
   plugins: [
     "gatsby-plugin-sharp",

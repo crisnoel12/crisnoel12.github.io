@@ -7,6 +7,7 @@ import MainContainer from "../components/Layouts/MainContainer";
 import Projects from "../components/Sections/Projects";
 import Contact from "../components/Sections/Contact";
 import BlogSection from "../components/Sections/BlogSection";
+import {Helmet} from "react-helmet";
 
 const useStyles = makeStyles((theme) => ({
 }));
@@ -45,6 +46,11 @@ const IndexPage = ({data}) => {
 
   return (
     <MainContainer>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Cris Noel</title>
+        <link rel="canonical" href={process.env.DOMAIN} />
+      </Helmet>
       <Experiences experiences={experiences} />
       <Projects workProjects={workProjects} personalProjects={personalProjects} />
       <BlogSection posts={data.allContentfulPost.nodes} />

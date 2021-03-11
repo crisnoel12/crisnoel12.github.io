@@ -1,6 +1,7 @@
 import { Button, Card, Grid, Typography, Link, makeStyles } from '@material-ui/core'
 import { graphql } from 'gatsby'
 import React from 'react'
+import Helmet from 'react-helmet'
 import MainContainer from '../components/Layouts/MainContainer'
 import BlogPostPreviewMisc from '../components/Utils/BlogPostPreviewMisc'
 import Excerpt from '../components/Utils/Excerpt'
@@ -27,6 +28,11 @@ const BlogPage = ({ data }) => {
           const excerpt = JSON.parse(post.content.raw).content.find(obj => obj.nodeType === "paragraph").content[0].value;
           return (
             <Grid item xs={6} lg={4}>
+              <Helmet>
+                <meta charSet="utf-8" />
+                <title>Cris Noel | Blog</title>
+                <link rel="canonical" href={`${process.env.DOMAIN}/blog`} />
+              </Helmet>
               <Card className={classes.card}>
                 <img width="100%" height="180px" src={`https://${image.file.url}`} />
                 <Typography variant={"h5"}>{title}</Typography>
