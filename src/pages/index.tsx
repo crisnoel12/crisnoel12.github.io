@@ -48,7 +48,7 @@ const IndexPage = ({data}) => {
     <MainContainer>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Cris Noel</title>
+        <title>Cris Noel | Software Engineer</title>
         <link rel="canonical" href={process.env.DOMAIN} />
       </Helmet>
       <Experiences experiences={experiences} />
