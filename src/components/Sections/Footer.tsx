@@ -10,13 +10,16 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: `${theme.palette.type === "light" ? 'whitesmoke' : 'transparent'}`,
     borderTop: "3px solid black",
     color: `${theme.palette.type === "light" ? 'black' : 'white'}`,
-    borderRadius: '0px'
+    borderRadius: '0px',
   },
   heart : {
     color: theme.palette.primary.main
   },
   gatsbyImg: {
     verticalAlign: 'middle'
+  },
+  bold: {
+    fontWeight: 'bold'
   }
 }));
 
@@ -30,7 +33,7 @@ export default function Footer() {
   const GatsbyBadge = () => (
     <React.Fragment>
       <span>
-        <img src={GatsbyImage} className={classes.gatsbyImg} width={16} height={16} />
+        <img src={GatsbyImage} alt={"Gatsby.js Monogram image"} className={classes.gatsbyImg} width={16} height={16} />
       </span>
       &nbsp;Gatsby.js
     </React.Fragment>
@@ -45,6 +48,7 @@ export default function Footer() {
       >
         <Typography 
           variant={"caption"}
+          className={classes.bold}
           >
             {year} <Copy /> CRIS N. CANCINO | Coded with <Heart /> in <GatsbyBadge />
         </Typography>
