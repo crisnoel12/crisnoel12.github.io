@@ -1,7 +1,7 @@
-import { AppBar, Paper, Typography } from '@material-ui/core';
+import { AppBar, Paper, Link, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import React from 'react';
-import GatsbyImage from "../../images/Gatsby_Monogram.png";
+import GatsbyLogo from "../../images/Gatsby_Logo.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,13 +30,12 @@ export default function Footer() {
 
   const Copy = () => <span>&copy;</span>;
   const Heart = () => <span className={classes.heart}>&hearts;</span>;
-  const GatsbyBadge = () => (
-    <React.Fragment>
+  const GatsbyLink = () => (
+    <Link href={"https://www.gatsbyjs.com/"}>
       <span>
-        <img src={GatsbyImage} alt={"Gatsby.js Monogram image"} className={classes.gatsbyImg} width={16} height={16} />
+        <img src={GatsbyLogo} alt={"Gatsby.js Logo"} className={classes.gatsbyImg} height={24}/>
       </span>
-      &nbsp;Gatsby.js
-    </React.Fragment>
+    </Link>
   );
 
   return (
@@ -50,7 +49,7 @@ export default function Footer() {
           variant={"caption"}
           className={classes.bold}
           >
-            {year} <Copy /> CRIS N. CANCINO | Coded with <Heart /> in <GatsbyBadge />
+            {year} <Copy /> CRIS N. CANCINO | Coded with <Heart /> in <GatsbyLink />
         </Typography>
       </AppBar>
     </Paper>
