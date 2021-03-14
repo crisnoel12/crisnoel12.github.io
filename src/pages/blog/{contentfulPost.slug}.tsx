@@ -5,9 +5,10 @@ import { Grid, Typography } from '@material-ui/core';
 import HeaderLine from '../../components/Utils/HeaderLine';
 import RichTextDocument from '../../components/Layouts/RichTextDocument';
 import Helmet from 'react-helmet';
+import { POST } from '../../Types';
 
 export default function Post({ data }) {
-  const { id, slug, title, date, image, content } = data.contentfulPost;
+  const { id, slug, title, date, image, content } = data.contentfulPost as POST;
   return (
     <MainContainer>
       <Helmet>

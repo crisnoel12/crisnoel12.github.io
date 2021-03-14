@@ -1,7 +1,7 @@
 import { Grid, Card, CardHeader, Divider, CardContent, Typography, CardActions, Chip, Link, Button, Tabs, Tab, makeStyles } from '@material-ui/core';
 import React from 'react'
 import TabPanel from '../Layouts/TabPanel';
-import {PROJECT} from '../../pages/index';
+import { PROJECT } from '../../Types';
 import HomePageSection from '../Layouts/HomePageSection';
 
 const useStyles = makeStyles((theme) => ({
@@ -98,7 +98,7 @@ export default function Projects({ workProjects, personalProjects }: Props) {
     if (projectType === PROJECT_TYPE.WORK.VALUE) {
       return (
         workProjects && workProjects.length > 0 ? workProjects.map(project => (
-          <Grid item xs={12} md={6} lg={4}>
+          <Grid key={project.id} item xs={12} md={6} lg={4}>
             <Card className={classes.workProjectContainer}>
               <CardHeader
                 title={project.title}
@@ -114,7 +114,7 @@ export default function Projects({ workProjects, personalProjects }: Props) {
                 <Divider className={classes.divider} />
                 <div className={classes.workTechnologyContainer}>
                   {project.technologies.map(technology => (
-                    <Chip label={<Typography variant={"caption"}>{technology}</Typography>} size={"small"} className={classes.technologyChip} />
+                    <Chip key={`${project.id}_${technology}`} label={<Typography variant={"caption"}>{technology}</Typography>} size={"small"} className={classes.technologyChip} />
                   ))}
                 </div>
                 <Divider className={classes.divider} />
@@ -140,7 +140,7 @@ export default function Projects({ workProjects, personalProjects }: Props) {
     } else { // Personal Project
       return (
         personalProjects && personalProjects.length > 0 ? personalProjects.map(project => (
-          <Grid item xs={12} md={6} lg={4}>
+          <Grid key={project.id} item xs={12} md={6} lg={4}>
             <Link 
               href={project.url} 
               classes={{ root: classes.personalProjectContainer}}
@@ -156,7 +156,7 @@ export default function Projects({ workProjects, personalProjects }: Props) {
               </div>
             </Link>
             {project.technologies.map(technology => (
-              <Chip label={<Typography variant={"caption"}>{technology}</Typography>} size={"small"} className={classes.technologyChip} />
+              <Chip key={`${project.id}_${technology}`} label={<Typography variant={"caption"}>{technology}</Typography>} size={"small"} className={classes.technologyChip} />
             ))}
           </Grid>
         )) : <Typography className={classes.noProjectsText}>{`No ${PROJECT_TYPE.PERSONAL.NAME} Projects to Show.`}</Typography>

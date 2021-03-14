@@ -8,35 +8,10 @@ import Projects from "../components/Sections/Projects";
 import Contact from "../components/Sections/Contact";
 import BlogSection from "../components/Sections/BlogSection";
 import {Helmet} from "react-helmet";
+import { EXPERIENCE, PROJECT } from "../Types";
 
 const useStyles = makeStyles((theme) => ({
 }));
-
-export interface EXPERIENCE {
-  id: String,
-  contentful_id: String,
-  position: String,
-  company: String,
-  responsibilities: String[]
-}
-
-export interface PROJECT {
-  id: String,
-  contentful_id: String,
-  title: String,
-  description: {
-    description: String
-  },
-  technologies: String[],
-  personalProject: Boolean,
-  url: String,
-  createdAt: String,
-  image: {
-    file: {
-      url: String
-    }
-  }
-}
 
 const IndexPage = ({data}) => {
   const classes = useStyles();

@@ -159,10 +159,10 @@ export default function Contact() {
         <Grid item  xs={12} lg={5}>
           <iframe 
             id="map"
-            frameborder="0"
+            frameBorder="0"
             className={classes.map}
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDV2mJDjLBrrPdVGXSr0ajaV2WBSMwB_HI
-              &q=Los+Angeles&maptype=satellite" allowfullscreen>
+              &q=Los+Angeles&maptype=satellite" allowFullScreen>
           </iframe>
         </Grid>
       </Grid>

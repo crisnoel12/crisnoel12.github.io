@@ -6,6 +6,7 @@ import MainContainer from '../components/Layouts/MainContainer'
 import BlogPostPreviewMisc from '../components/Utils/BlogPostPreviewMisc'
 import Excerpt from '../components/Utils/Excerpt'
 import HeaderLine from '../components/Utils/HeaderLine'
+import { POST } from '../Types';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 const BlogPage = ({ data }) => {
   const classes = useStyles();
-  const posts = data.allContentfulPost.nodes;
+  const posts: POST[] = data.allContentfulPost.nodes;
   return (
     <MainContainer>
       <Typography variant={"h3"} gutterBottom>Blog</Typography>
@@ -27,7 +28,7 @@ const BlogPage = ({ data }) => {
           const { title, date, image, content, slug } = post;
           const excerpt = JSON.parse(post.content.raw).content.find(obj => obj.nodeType === "paragraph").content[0].value;
           return (
-            <Grid item xs={6} lg={4}>
+            <Grid key={post.id} item xs={6} lg={4}>
               <Helmet>
                 <meta charSet="utf-8" />
                 <title>Cris Noel | Blog</title>
