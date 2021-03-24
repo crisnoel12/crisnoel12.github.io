@@ -1,8 +1,9 @@
-import { Grid, Card, CardHeader, Divider, CardContent, Typography, CardActions, Chip, Link, Button, Tabs, Tab, makeStyles } from '@material-ui/core';
-import React from 'react'
-import TabPanel from '../Layouts/TabPanel';
+import React from 'react';
+import { makeStyles, Button, Card, CardActions, CardContent, CardHeader, Chip, Divider, Grid, Link, Tab, Tabs, Typography } from '@material-ui/core';
+
 import { PROJECT } from '../../Types';
 import HomePageSection from '../Layouts/HomePageSection';
+import TabPanel from '../Layouts/TabPanel';
 
 const useStyles = makeStyles((theme) => ({
   projectTabStyle: {

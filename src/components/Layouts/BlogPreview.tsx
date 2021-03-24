@@ -1,9 +1,9 @@
-import { Typography, makeStyles } from '@material-ui/core';
-import React from 'react'
-import Link from '@material-ui/core/Link';
-import Excerpt from '../Utils/Excerpt';
-import BlogPostPreviewMisc from '../Utils/BlogPostPreviewMisc';
+import React from 'react';
+import { Link, Typography, makeStyles } from '@material-ui/core';
+
 import { POST } from '../../Types';
+import BlogPostPreviewMisc from '../Utils/BlogPostPreviewMisc';
+import Excerpt from '../Utils/Excerpt';
 
 const useStyles = makeStyles((theme) => ({
   heading: {

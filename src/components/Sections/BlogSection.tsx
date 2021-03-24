@@ -1,8 +1,9 @@
-import { Grid, Button, makeStyles, Link } from '@material-ui/core'
-import React from 'react'
-import BlogPreview from '../Layouts/BlogPreview'
-import HomePageSection from '../Layouts/HomePageSection'
+import React from 'react';
+import { makeStyles, Button, Grid, Link } from '@material-ui/core';
+
 import { POST } from '../../Types';
+import BlogPreview from '../Layouts/BlogPreview';
+import HomePageSection from '../Layouts/HomePageSection';
 
 const useStyles = makeStyles((theme) => ({
   viewAllBtn: {

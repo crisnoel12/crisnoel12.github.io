@@ -1,5 +1,5 @@
+import React from 'react';
 import { Box, Grid } from '@material-ui/core';
-import React from 'react'
 
 export default function TabPanel(props) {
   const { children, value, index, style, ...other } = props;

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   makeStyles,
   Grid,
@@ -11,13 +12,13 @@ import {
   Hidden,
   Link
 } from "@material-ui/core";
-import React from "react";
+import EmailIcon from "@material-ui/icons/Email";
+import GitHubIcon from "@material-ui/icons/GitHub";
+
 import AvatarPicture from "../../images/profile_picture.jpg";
 import Logo from "../../images/cn-logo.png";
 import LogoBlack from "../../images/cn-logo-black.png";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import EmailIcon from "@material-ui/icons/Email";
 import ThemeSwitch from "../ThemeSwitch";
 
 const useStyles = makeStyles((theme) => ({

@@ -1,8 +1,9 @@
+import React from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
-import React from 'react'
-import { estimatedReadTime } from '.';
-import TodayIcon from '@material-ui/icons/Today';
 import ScheduleIcon from '@material-ui/icons/Schedule';
+import TodayIcon from '@material-ui/icons/Today';
+
+import { estimatedReadTime } from '.';
 
 const useStyles = makeStyles((theme) => ({
   metaData: {

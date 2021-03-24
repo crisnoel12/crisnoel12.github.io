@@ -1,12 +1,13 @@
-import { Button, Card, Grid, Typography, Link, makeStyles } from '@material-ui/core'
-import { graphql } from 'gatsby'
-import React from 'react'
+import React from 'react';
+import { graphql } from 'gatsby';
+import { Button, Card, Grid, Typography, Link, makeStyles } from '@material-ui/core';
 import Helmet from 'react-helmet'
-import MainContainer from '../components/Layouts/MainContainer'
-import BlogPostPreviewMisc from '../components/Utils/BlogPostPreviewMisc'
-import Excerpt from '../components/Utils/Excerpt'
-import HeaderLine from '../components/Utils/HeaderLine'
+
 import { POST } from '../Types';
+import BlogPostPreviewMisc from '../components/Utils/BlogPostPreviewMisc';
+import Excerpt from '../components/Utils/Excerpt';
+import HeaderLine from '../components/Utils/HeaderLine';
+import MainContainer from '../components/Layouts/MainContainer';
 
 const useStyles = makeStyles((theme) => ({
   card: {

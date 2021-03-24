@@ -1,6 +1,6 @@
-import { AppBar, Paper, Link, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core';
 import React from 'react';
+import { makeStyles, AppBar, Paper, Link, Typography } from '@material-ui/core';
+
 import GatsbyLogo from "../../images/Gatsby_Logo.png";
 
 const useStyles = makeStyles((theme) => ({

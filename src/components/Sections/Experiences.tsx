@@ -1,5 +1,6 @@
-import { Typography, List, ListItem, ListItemText, Divider, makeStyles, Card } from '@material-ui/core'
-import React from 'react'
+import React from 'react';
+import { makeStyles, Card, List, ListItem, ListItemText, Typography } from '@material-ui/core';
+
 import { EXPERIENCE } from '../../Types';
 import HomePageSection from '../Layouts/HomePageSection';
 

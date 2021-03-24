@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Paper, Typography, Link, Grid, Button, makeStyles } from "@material-ui/core";
-import MainContainer from "../components/Layouts/MainContainer";
+import { Typography, Link, Grid, Button, makeStyles } from "@material-ui/core";
 import Helmet from "react-helmet";
 
+import MainContainer from "../components/Layouts/MainContainer";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center'
   }
 }));
-// markup
+
 const NotFoundPage = () => {
   const classes = useStyles();
   return (

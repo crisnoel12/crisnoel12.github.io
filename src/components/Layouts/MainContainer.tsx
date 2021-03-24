@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {
-  Grid,
-  Paper,
-} from "@material-ui/core";
-import "../../styles/global.css";
-import Navbar from "../Navbar";
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
-import Profile from "./Profile";
-import {theme} from "../../Config/Theme/Theme";
+import { makeStyles, Grid, Paper, ThemeProvider } from "@material-ui/core";
 import darkmodejs from '@assortment/darkmodejs';
-import Footer from "../Sections/Footer";
+
+import "../../styles/global.css";
+import { theme } from "../../Config/Theme/Theme";
 import { getLocalStorageItem, setLocalStorageItem } from '../Utils/index';
+import Footer from "../Sections/Footer";
+import Navbar from "../Navbar";
+import Profile from "./Profile";
 
 export enum MODE {
   DARK = 'dark',
@@ -71,7 +68,7 @@ const MainContainer = (props) => {
     }
   }, []);
 
-  const MainContent = () => (
+  const MainContent = (
     <Grid item xs={12} md={7} lg={9}>
       <Navbar themeMode={themeMode} changeMode={onChange} />
       <Paper component={Grid} className={classes.mainContent}>
@@ -79,14 +76,15 @@ const MainContainer = (props) => {
       </Paper>
       <Footer />
     </Grid>
-  )
+  );
+
   return (
     <ThemeProvider theme={theme[themeMode]}>
       <Paper square={true} elevation={0} className={classes.root}>
         <Grid container>
           <Profile themeMode={themeMode} changeMode={onChange} />
           <Grid item xs={12} md={5} lg={3} />
-          {MainContent()}
+          {MainContent}
         </Grid>
       </Paper>
     </ThemeProvider>

@@ -1,11 +1,11 @@
-import { Button, Grid, makeStyles, Snackbar, TextField } from '@material-ui/core'
 import React from 'react';
+import { makeStyles, Button, CircularProgress, Grid, Snackbar, TextField } from '@material-ui/core';
+import { Alert } from '@material-ui/lab';
+import axios from 'axios';
 import SendIcon from '@material-ui/icons/Send';
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
+
 import HomePageSection from '../Layouts/HomePageSection';
-import axios from 'axios';
-import { Alert } from '@material-ui/lab';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
   textField: {

@@ -2,8 +2,8 @@ import React from 'react';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { makeStyles, Typography } from '@material-ui/core';
-import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokai } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import SyntaxHighlighter from 'react-syntax-highlighter';
 
 const useStyles = makeStyles((theme) => ({
   subtitle: {
