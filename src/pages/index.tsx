@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import {Helmet} from "react-helmet";
 
 import { sortByASC, sortByDESC } from "../components/Utils/index";
-import { EXPERIENCE, PROJECT } from "../Types";
+import { EXPERIENCE, POST, PROJECT } from "../Types";
 import BlogSection from "../components/Sections/BlogSection";
 import Contact from "../components/Sections/Contact";
 import Experiences from "../components/Sections/Experiences";
@@ -14,6 +14,7 @@ const IndexPage = ({data}) => {
   const experiences: EXPERIENCE[] = sortByASC(data.allContentfulExperience.nodes);
   const workProjects: PROJECT[] = sortByDESC(data.allContentfulProjects.nodes.filter(project => project.personalProject === false));
   const personalProjects: PROJECT[] = sortByDESC(data.allContentfulProjects.nodes.filter(project => project.personalProject === true));
+  const posts: POST[] = data.allContentfulPost.nodes;
 
   return (
     <MainContainer>
@@ -24,7 +25,7 @@ const IndexPage = ({data}) => {
       </Helmet>
       <Experiences experiences={experiences} />
       <Projects workProjects={workProjects} personalProjects={personalProjects} />
-      <BlogSection posts={data.allContentfulPost.nodes} />
+      <BlogSection posts={posts} />
       <Contact />
     </MainContainer>
   )

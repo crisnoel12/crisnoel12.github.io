@@ -47,8 +47,8 @@ export default function Post({ data }) {
 }
 
 export const postQuery = graphql`
-  query post($id: String!){
-    contentfulPost(id: { eq: $id }){
+  query{
+    contentfulPost{
       id
       slug
       title
