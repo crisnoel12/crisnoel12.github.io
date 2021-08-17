@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Typography, Link, Grid, Button, makeStyles } from "@material-ui/core";
-import Helmet from "react-helmet";
 
 import MainContainer from "../components/Layouts/MainContainer";
+import PageHelmet from "../components/Utils/PageHelmet";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,11 +17,10 @@ const NotFoundPage = () => {
   const classes = useStyles();
   return (
     <MainContainer>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Cris Noel | 404</title>
-        <link rel="canonical" href={`${process.env.DOMAIN}/404`} />
-      </Helmet>
+      <PageHelmet 
+        title={'Cris Noel | 404'}
+        href={`${process.env.DOMAIN}/404`}
+      />
       <Grid container justify={"center"} className={classes.root}>
         <div className={classes.center}>
           <iframe 

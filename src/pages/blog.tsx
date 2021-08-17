@@ -1,13 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Button, Card, Grid, Typography, Link, makeStyles } from '@material-ui/core';
-import Helmet from 'react-helmet'
 
 import { POST } from '../Types';
 import BlogPostPreviewMisc from '../components/Utils/BlogPostPreviewMisc';
 import Excerpt from '../components/Utils/Excerpt';
 import HeaderLine from '../components/Utils/HeaderLine';
 import MainContainer from '../components/Layouts/MainContainer';
+import PageHelmet from '../components/Utils/PageHelmet';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -22,6 +22,10 @@ const BlogPage = ({ data }) => {
   const posts: POST[] = data.allContentfulPost.nodes;
   return (
     <MainContainer>
+      <PageHelmet 
+        title={'Cris Noel | Blog'}
+        href={`${process.env.DOMAIN}/blog`}
+      />
       <Typography variant={"h3"} gutterBottom>Blog</Typography>
       <HeaderLine />
       <Grid container spacing={4}>
@@ -30,11 +34,6 @@ const BlogPage = ({ data }) => {
           const excerpt = JSON.parse(post.content.raw).content.find(obj => obj.nodeType === "paragraph").content[0].value;
           return (
             <Grid key={post.id} item xs={6} lg={4}>
-              <Helmet>
-                <meta charSet="utf-8" />
-                <title>Cris Noel | Blog</title>
-                <link rel="canonical" href={`${process.env.DOMAIN}/blog`} />
-              </Helmet>
               <Card className={classes.card}>
                 <img width="100%" height="180px" src={`https://${image.file.url}`} />
                 <Typography variant={"h5"}>{title}</Typography>

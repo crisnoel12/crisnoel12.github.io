@@ -4,8 +4,8 @@ import { Grid, Typography, makeStyles } from '@material-ui/core';
 
 import { POST } from '../../Types';
 import HeaderLine from '../../components/Utils/HeaderLine';
-import Helmet from 'react-helmet';
 import MainContainer from '../../components/Layouts/MainContainer';
+import PageHelmet from '../../components/Utils/PageHelmet';
 import RichTextDocument from '../../components/Layouts/RichTextDocument';
 
 const useStyles = makeStyles((theme) => ({
@@ -30,11 +30,10 @@ export default function Post({ data }) {
   const classes = useStyles();
   return (
     <MainContainer>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{`Cris Noel | ${title}`}</title>
-        <link rel="canonical" href={`${process.env.DOMAIN}/blog/${slug}`} />
-      </Helmet>
+      <PageHelmet 
+        title={`Cris Noel | ${title}`}
+        href={`${process.env.DOMAIN}/blog/${slug}`}
+      />
       <Grid container className={classes.root}>
         <Typography variant={"h1"} gutterBottom className={classes.title}>{title}</Typography>
         <Grid item xs={12}><HeaderLine /></Grid>
@@ -47,8 +46,8 @@ export default function Post({ data }) {
 }
 
 export const postQuery = graphql`
-  query{
-    contentfulPost{
+  query($id: String!){
+    contentfulPost(id: { eq: $id }){
       id
       slug
       title

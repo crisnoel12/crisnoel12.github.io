@@ -1,6 +1,5 @@
 import * as React from "react";
 import { graphql } from 'gatsby';
-import {Helmet} from "react-helmet";
 
 import { sortByASC, sortByDESC } from "../components/Utils/index";
 import { EXPERIENCE, POST, PROJECT } from "../Types";
@@ -8,6 +7,7 @@ import BlogSection from "../components/Sections/BlogSection";
 import Contact from "../components/Sections/Contact";
 import Experiences from "../components/Sections/Experiences";
 import MainContainer from "../components/Layouts/MainContainer";
+import PageHelmet from "../components/Utils/PageHelmet";
 import Projects from "../components/Sections/Projects";
 
 const IndexPage = ({data}) => {
@@ -18,11 +18,10 @@ const IndexPage = ({data}) => {
 
   return (
     <MainContainer>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Cris Noel | Software Engineer</title>
-        <link rel="canonical" href={process.env.DOMAIN} />
-      </Helmet>
+      <PageHelmet 
+        title={'Cris Noel | Software Engineer'}
+        href={process.env.DOMAIN}
+      />
       <Experiences experiences={experiences} />
       <Projects workProjects={workProjects} personalProjects={personalProjects} />
       <BlogSection posts={posts} />
