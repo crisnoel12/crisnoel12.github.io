@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(0.5)
   },
   paragraph: {
-    width: '100%',
+    maxWidth: '100%',
+    width: '100%',  
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
     letterSpacing: '.05em'
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: 'pre-wrap'
   },
   code: {
-    whiteSpace: 'pre-wrap'
+    whiteSpace: 'pre-wrap',
   }
 }));
 
@@ -53,15 +54,17 @@ export default function RichTextDocument({ richTextDocument, references }) {
     renderMark: {
       [MARKS.BOLD]: text => <Bold>{text}</Bold>,
       [MARKS.CODE]: text => (
+        <Text>
           <SyntaxHighlighter 
             style={monokai} 
             showLineNumbers
             customStyle={{
-              fontFamily: `Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace`
+              fontFamily: `Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace`,
             }}
           >
             {text}
           </SyntaxHighlighter>
+        </Text>
       )
     },
     renderNode: {
