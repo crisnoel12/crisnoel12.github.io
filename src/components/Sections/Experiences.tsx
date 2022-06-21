@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Card, List, ListItem, ListItemText, Typography } from '@material-ui/core';
+import { makeStyles, Card, List, ListItem, ListItemText, Typography, Divider } from '@material-ui/core';
 
 import { EXPERIENCE } from '../../Types';
 import HomePageSection from '../Layouts/HomePageSection';
@@ -7,8 +7,6 @@ import HomePageSection from '../Layouts/HomePageSection';
 const useStyles = makeStyles((theme) => ({
   position_company: {
     fontFamily: 'Montserrat !important',
-    fontWeight: 500,
-    marginTop: theme.spacing(2)
   },
   listRoot: {
     listStyle: 'circle',
@@ -34,9 +32,13 @@ export default function Experiences({ experiences }: Props) {
       {
         experiences && experiences.map(experience => (
           <Card key={experience.id} className={classes.card}>
-            <Typography variant="h5" className={classes.position_company}>
-              {experience.position} <Typography variant="inherit" color={"primary"}>@</Typography> {experience.company}
+            <Typography variant="h6" className={classes.position_company}>
+              {experience.position}
             </Typography>
+            <Typography variant="subtitle1" className={classes.position_company}>
+              <Typography variant="inherit" color={"primary"}>@</Typography> {experience.company}
+            </Typography>
+            <Divider />
             <List classes={{ root: classes.listRoot }}>
               {experience.responsibilities.map(responsibility => (
                 <ListItem key={`${experience.id}_${responsibility}`} className={classes.listItemRoot}>

@@ -10,7 +10,7 @@ import RichTextDocument from '../../components/Layouts/RichTextDocument';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: `0px ${theme.spacing(10)}px`
+    padding: `0px ${theme.spacing(1.5)}px`
   },
   title: {
     fontSize: '3rem',

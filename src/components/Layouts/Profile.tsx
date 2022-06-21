@@ -10,7 +10,8 @@ import {
   Button,
   useTheme,
   Hidden,
-  Link
+  Link,
+  Box
 } from "@material-ui/core";
 import EmailIcon from "@material-ui/icons/Email";
 import GitHubIcon from "@material-ui/icons/GitHub";
@@ -24,9 +25,9 @@ import ThemeSwitch from "../ThemeSwitch";
 const useStyles = makeStyles((theme) => ({
   profileSection: {
     textAlign: "center",
-    height: "100vh",
     padding: '1rem',
     [theme.breakpoints.up("md")]: {
+      height: "100vh",
       padding: 0,
       position: "fixed",
       borderRight: `3px solid black`,
@@ -106,7 +107,7 @@ export default function Profile({ themeMode, changeMode }) {
             about new frameworks and languages that I haven't mastered yet. I'm well
             versed in both front-end and back-end development. I'm currently
             accepting freelance work, if you're in need of a website, I'm your guy,
-            feel free to Contact me.
+            feel free to contact me.
           </Typography>
           <Link
             target="_blank"
@@ -114,7 +115,7 @@ export default function Profile({ themeMode, changeMode }) {
             href={process.env.RESUME}
           >
             <Button
-              color={"secondary"}
+              color={"primary"}
               variant={"contained"}
               fullWidth
               className={classes.resume}
@@ -123,23 +124,25 @@ export default function Profile({ themeMode, changeMode }) {
             </Button>
           </Link>
           <Divider className={classes.divider} />
-          <IconButton
-            onClick={() =>
-              window.open("https://www.linkedin.com/in/crisncancino/", "_blank")
-            }
-          >
-            <LinkedInIcon color="primary"  />
-          </IconButton>
-          <IconButton
-            onClick={() => window.open("https://github.com/crisnoel12", "_blank")}
-          >
-            <GitHubIcon color="primary" />
-          </IconButton>
-          <IconButton
-            onClick={() => window.open("mailto:crisncancino@gmail.com", "_blank")}
-          >
-            <EmailIcon color="primary" />
-          </IconButton>
+          <Box component={"span"} display={"block"}>
+            <IconButton
+              onClick={() =>
+                window.open("https://www.linkedin.com/in/crisncancino/", "_blank")
+              }
+            >
+              <LinkedInIcon color="primary"  />
+            </IconButton>
+            <IconButton
+              onClick={() => window.open("https://github.com/crisnoel12", "_blank")}
+            >
+              <GitHubIcon color="primary" />
+            </IconButton>
+            <IconButton
+              onClick={() => window.open("mailto:crisncancino@gmail.com", "_blank")}
+            >
+              <EmailIcon color="primary" />
+            </IconButton>
+          </Box>
         </Paper>
       </Grid>
     </Paper>
