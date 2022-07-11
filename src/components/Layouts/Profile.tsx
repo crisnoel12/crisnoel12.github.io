@@ -102,8 +102,7 @@ export default function Profile({ themeMode, changeMode }) {
           </Typography>
           <Divider className={classes.divider} />
           <Typography className={classes.about}>
-            What's up, I'm Cris and I'm a Software Engineer currently based in Los
-            Angeles, CA. I have a passion for building websites and learning more
+            What's up, I'm Cris and I'm a Software Engineer currently based in the Philippines. I have a passion for building websites and learning more
             about new frameworks and languages that I haven't mastered yet. I'm well
             versed in both front-end and back-end development. I'm currently
             accepting freelance work, if you're in need of a website, I'm your guy,

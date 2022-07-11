@@ -162,7 +162,7 @@ export default function Contact() {
             frameBorder="0"
             className={classes.map}
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDV2mJDjLBrrPdVGXSr0ajaV2WBSMwB_HI
-              &q=Los+Angeles&maptype=satellite" allowFullScreen>
+              &q=Cavite&maptype=satellite" allowFullScreen>
           </iframe>
         </Grid>
       </Grid>
