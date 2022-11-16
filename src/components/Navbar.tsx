@@ -4,9 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import ThemeSwitch from './ThemeSwitch';
 
 const useStyles = makeStyles(theme => ({
-  appBarRoot: {
-    borderBottom: `3px solid black`
-  },
   linkRoot: {
     color: theme.palette.primary.contrastText,
     fontSize: theme.spacing(2),

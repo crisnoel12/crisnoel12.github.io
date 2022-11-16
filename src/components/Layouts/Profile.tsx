@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
       height: "100vh",
       padding: 0,
       position: "fixed",
-      borderRight: `3px solid black`,
     },
   },
   profileSectionPaper: {
@@ -63,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'right'
   },
   divider: {
-    margin: `${theme.spacing(1)}px 0`
+    margin: `${theme.spacing(2)}px 0`
   },
   resume: {
     marginTop: theme.spacing(2)

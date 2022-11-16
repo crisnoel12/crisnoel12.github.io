@@ -23,6 +23,12 @@ const useStyles = makeStyles((theme) => ({
   mainContent: {
     padding: theme.spacing(4),
     borderRadius: 0
+  },
+  mainContentLight: {
+    borderLeft: `2px solid rgba(0, 0, 0, 0.12)`
+  },
+  mainContentDark: {
+    borderLeft: `2px solid rgba(255, 255, 255, 0.12)`
   }
 }));
 
@@ -71,7 +77,7 @@ const MainContainer = (props) => {
   const MainContent = (
     <Grid item xs={12} md={7} lg={9}>
       <Navbar themeMode={themeMode} changeMode={onChange} />
-      <Paper component={Grid} className={classes.mainContent}>
+      <Paper component={Grid} className={`${classes.mainContent} ${themeMode === MODE.LIGHT ? classes.mainContentLight : classes.mainContentDark}`}>
         {props.children}
       </Paper>
       <Footer />
