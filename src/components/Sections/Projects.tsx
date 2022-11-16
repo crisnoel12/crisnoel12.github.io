@@ -74,24 +74,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const PROJECT_TYPE = {
-  WORK: {
-    NAME: "Work",
-    VALUE: 0
-  },
   PERSONAL: {
     NAME: "Personal",
+    VALUE: 0
+  },
+  WORK: {
+    NAME: "Work",
     VALUE: 1
   }
 }
 
 interface Props {
-  workProjects: PROJECT[],
-  personalProjects: PROJECT[]
+  personalProjects: PROJECT[],
+  workProjects: PROJECT[]
 }
 
-export default function Projects({ workProjects, personalProjects }: Props) {
+export default function Projects({ personalProjects, workProjects }: Props) {
   const classes = useStyles();
-  const [projectTab, setProjectTab] = React.useState(PROJECT_TYPE.WORK.VALUE);
+  const [projectTab, setProjectTab] = React.useState(PROJECT_TYPE.PERSONAL.VALUE);
 
   const changeProjectTab = (event, value) => setProjectTab(value);
 
@@ -174,14 +174,14 @@ export default function Projects({ workProjects, personalProjects }: Props) {
         centered
         className={classes.projectTabStyle}
       >
-        <Tab label={PROJECT_TYPE.WORK.NAME} />
         <Tab label={PROJECT_TYPE.PERSONAL.NAME} />
+        <Tab label={PROJECT_TYPE.WORK.NAME} />
       </Tabs>
       <TabPanel value={projectTab} index={0} className={classes.tabPanelStyle}>
-        {renderProjectType(PROJECT_TYPE.WORK.VALUE)}
+        {renderProjectType(PROJECT_TYPE.PERSONAL.VALUE)}
       </TabPanel>
       <TabPanel value={projectTab} index={1} className={classes.tabPanelStyle}>
-        {renderProjectType(PROJECT_TYPE.PERSONAL.VALUE)}
+        {renderProjectType(PROJECT_TYPE.WORK.VALUE)}
       </TabPanel>
     </HomePageSection>
   )
