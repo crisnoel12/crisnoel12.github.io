@@ -1,7 +1,43 @@
-body {
-    margin: 0;
-    /* font-family: 'Montserrat'; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .subtitle {
+    @apply pl-2 border-l-4 border-red-700
+  }
 }
-/* h1, h2, h3, h4, h5, h6 {
-    font-family: 'Permanent Marker' !important;
-} */
+
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: "montserrat"
+}
+
+textarea {
+  resize: none;
+}
+
+ol, ul, menu {
+  margin: 0;
+  padding: 0 32px;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+.permanentMarker {
+  font-family: "Permanent Marker"
+}

@@ -1,7 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-export default function PageHelmet({ title, href }) {
+interface Props {
+  title: string
+  href: string
+}
+export default function PageHelmet({ title, href } : Props) {
   return (
     <Helmet>
       <meta charSet="utf-8" />

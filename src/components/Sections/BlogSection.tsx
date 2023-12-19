@@ -1,34 +1,26 @@
-import React from 'react';
-import { makeStyles, Button, Grid, Link } from '@material-ui/core';
-
-import { POST } from '../../Types';
-import BlogPreview from '../Layouts/BlogPreview';
-import HomePageSection from '../Layouts/HomePageSection';
-
-const useStyles = makeStyles((theme) => ({
-  viewAllBtn: {
-    margin: `${theme.spacing(4)}px 0 0`
-  }
-}));
+import React from "react";
+import { POST } from "../../Types";
+import HomePageSection from "../HomePageSection";
+import BlogPreview from "../BlogPreview";
+import Button from "../Button";
 
 interface Props {
-  posts: POST[]
+  posts: POST[];
 }
 
-export default function BlogSection({ posts }: Props) {
-  const classes = useStyles();
+const BlogSection: React.FC<Props> = ({ posts }: Props) => {
   return (
-    <HomePageSection title={"Blog"}>
-      <Grid container spacing={2}>
+    <HomePageSection title={"blog"}>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
         {posts.map((post) => (
-          <Grid key={post.id} item xs={12} md={6} lg={4}>
-            <BlogPreview data={post} />
-          </Grid>
+          <BlogPreview key={post.id} data={post} />
         ))}
-      </Grid>
-      <Link href={"/blog"}>
-        <Button className={classes.viewAllBtn} color={"primary"} variant={"contained"} fullWidth>View All</Button>
-      </Link>
+      </div>
+      <Button href={`/blog`} styles={"w-full mt-8"}>
+        View All
+      </Button>
     </HomePageSection>
-  )
-}
+  );
+};
+
+export default BlogSection;

@@ -1,53 +1,34 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { Grid, Typography, makeStyles } from '@material-ui/core';
+import React from "react";
+import { POST } from "../../Types";
+import MainContainer from "../../components/MainContainer";
+import HeaderText from "../../components/HeaderText";
+import RichTextDocument from "../../components/RichTextDocument";
+import { graphql } from "gatsby";
 
-import { POST } from '../../Types';
-import HeaderLine from '../../components/Utils/HeaderLine';
-import MainContainer from '../../components/Layouts/MainContainer';
-import PageHelmet from '../../components/Utils/PageHelmet';
-import RichTextDocument from '../../components/Layouts/RichTextDocument';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: `0px ${theme.spacing(1.5)}px`
-  },
-  title: {
-    fontSize: '3rem',
-    width: '100%'
-  },
-  date: {
-    marginBottom: theme.spacing(2),
-    fontStyle: 'italic'
-  },
-  heroImg: {
-    marginBottom: theme.spacing(2)
-  }
-}));
-
-export default function Post({ data }) {
+export default function Post({ data }: any) {
   const { id, slug, title, date, image, content } = data.contentfulPost as POST;
-  const classes = useStyles();
   return (
-    <MainContainer>
-      <PageHelmet 
-        title={`Cris Noel | ${title}`}
-        href={`${process.env.DOMAIN}/blog/${slug}`}
-      />
-      <Grid container className={classes.root}>
-        <Typography variant={"h1"} gutterBottom className={classes.title}>{title}</Typography>
-        <Grid item xs={12}><HeaderLine /></Grid>
-        <Typography variant={"body2"} className={classes.date}>{date}</Typography>
-        <img width="100%" src={`https://${image.file.url}`} className={classes.heroImg} />
-        <RichTextDocument richTextDocument={JSON.parse(content.raw)} references={content.references} />
-      </Grid>
+    <MainContainer
+      title={`Cris Noel | ${title}`}
+      href={`${process.env.DOMAIN}/blog/${slug}`}
+    >
+      <div className="mt-16"></div>
+      <div className="grid mx-auto md:max-w-3xl lg:max-w-7xl lg:min-w-7xl px-6 lg:px-8">
+        <HeaderText align={"left"}>{title}</HeaderText>
+        <p className={"italic"}>{date}</p>
+        <img className={"w-full mt-3 mb-5"} src={`https://${image.file.url}`} />
+        <RichTextDocument
+          richTextDocument={JSON.parse(content.raw)}
+          references={content.references}
+        />
+      </div>
     </MainContainer>
-  )
+  );
 }
 
 export const postQuery = graphql`
-  query($id: String!){
-    contentfulPost(id: { eq: $id }){
+  query ($id: String!) {
+    contentfulPost(id: { eq: $id }) {
       id
       slug
       title
@@ -57,16 +38,14 @@ export const postQuery = graphql`
           url
         }
       }
-      content{
+      content {
         raw
         references {
           contentful_id
           id
-          fluid {
-            src
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
     }
   }
-`
+`;
