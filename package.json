@@ -2,7 +2,7 @@
   "name": "cris-noel",
   "version": "1.0.0",
   "private": true,
-  "description": "cris-noel",
+  "description": "Cris Noel",
   "keywords": [
     "gatsby"
   ],
@@ -15,6 +15,7 @@
     "typecheck": "tsc --noEmit",
     "deploy": "gatsby build && gh-pages -d public -b master"
   },
+  "license": "0BSD",
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^16.0.7",
     "@emailjs/browser": "^3.11.0",
@@ -31,6 +32,7 @@
     "gatsby-source-contentful": "^8.12.4",
     "gatsby-source-filesystem": "^5.12.1",
     "gatsby-transformer-sharp": "^5.12.3",
+    "gh-pages": "^6.1.0",
     "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
