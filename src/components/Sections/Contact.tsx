@@ -4,9 +4,9 @@ import { IoMdSend } from "react-icons/io";
 import { BiReset } from "react-icons/bi";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import emailjs from "@emailjs/browser";
-import Map from "../Map";
 import ServerStateContext from "../../context/ServerStateContext";
 import { IContactField } from "../../Types";
+import GoogleMap from "../GoogleMap";
 
 const Contact: React.FC = () => {
   const form = useRef();
@@ -162,7 +162,7 @@ const Contact: React.FC = () => {
             </button>
           </div>
         </form>
-        <Map />
+        <GoogleMap />
       </div>
     </HomePageSection>
   );
