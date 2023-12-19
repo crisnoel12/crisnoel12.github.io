@@ -27,7 +27,7 @@ const About: React.FC = () => {
           <Button href={process.env.RESUME} target={"_blank"}>
             View Resume
           </Button>
-          <Divider />
+          <Divider mb={2} />
           <div className="flex justify-evenly md:inline-flex">
             <IconButton
               href="https://www.linkedin.com/in/crisncancino/"
