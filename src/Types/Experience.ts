@@ -3,6 +3,11 @@ export default interface EXPERIENCE {
   contentful_id: string,
   position: string,
   company: string,
+  logo: {
+    file: {
+      url: string
+    }
+  },
   responsibilities: string[],
   createdAt: string
 }

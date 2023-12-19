@@ -1,36 +1,66 @@
 import * as React from "react";
-import { graphql } from 'gatsby';
-
-import { sortByASC, sortByDESC } from "../components/Utils/index";
+import type { PageProps } from "gatsby";
+import { graphql } from "gatsby";
+import { sortByASC, sortByDESC } from "../Utils/index";
 import { EXPERIENCE, POST, PROJECT } from "../Types";
+import MainContainer from "../components/MainContainer";
+import Hero from "../components/Hero";
+import About from "../components/Sections/About";
+import Experience from "../components/Sections/Experience";
+import Projects from "../components/Sections/Projects";
 import BlogSection from "../components/Sections/BlogSection";
 import Contact from "../components/Sections/Contact";
-import Experiences from "../components/Sections/Experiences";
-import MainContainer from "../components/Layouts/MainContainer";
-import PageHelmet from "../components/Utils/PageHelmet";
-import Projects from "../components/Sections/Projects";
+import Project from "../Types/Project";
 
-const IndexPage = ({data}) => {
-  const experiences: EXPERIENCE[] = sortByASC(data.allContentfulExperience.nodes);
-  const workProjects: PROJECT[] = sortByDESC(data.allContentfulProjects.nodes.filter(project => project.personalProject === false));
-  const personalProjects: PROJECT[] = sortByDESC(data.allContentfulProjects.nodes.filter(project => project.personalProject === true));
-  const posts: POST[] = data.allContentfulPost.nodes;
+interface Props {
+  data: {
+    allContentfulExperience: {
+      nodes: EXPERIENCE[];
+    };
+    allContentfulProjects: {
+      nodes: PROJECT[];
+    };
+    allContentfulPost: {
+      nodes: POST[];
+    };
+  };
+}
+
+const IndexPage: React.FC<Props> = ({
+  data: { allContentfulExperience, allContentfulPost, allContentfulProjects },
+}) => {
+  const experiences: EXPERIENCE[] = sortByASC(allContentfulExperience.nodes);
+  const workProjects: PROJECT[] = sortByDESC(
+    allContentfulProjects.nodes.filter(
+      (project: Project) => project.personalProject === false
+    )
+  );
+  const personalProjects: PROJECT[] = sortByDESC(
+    allContentfulProjects.nodes.filter(
+      (project: Project) => project.personalProject === true
+    )
+  );
+  const posts: POST[] = allContentfulPost.nodes;
 
   return (
-    <MainContainer>
-      <PageHelmet 
-        title={'Cris Noel | Software Engineer'}
-        href={process.env.DOMAIN}
+    <MainContainer
+      title={`Cris Noel | Web Developer`}
+      href={`${process.env.DOMAIN}`}
+    >
+      <Hero />
+      <About />
+      <Experience experiences={experiences} />
+      <Projects
+        personalProjects={personalProjects}
+        workProjects={workProjects}
       />
-      <Experiences experiences={experiences} />
-      <Projects workProjects={workProjects} personalProjects={personalProjects} />
       <BlogSection posts={posts} />
       <Contact />
     </MainContainer>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query Data {
@@ -42,6 +72,11 @@ export const query = graphql`
         company
         responsibilities
         createdAt
+        logo {
+          file {
+            url
+          }
+        }
       }
     }
     allContentfulProjects {
@@ -63,7 +98,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulPost(limit: 3, sort: {fields: date, order: DESC}) {
+    allContentfulPost(limit: 3, sort: { date: DESC }) {
       nodes {
         id
         contentful_id
@@ -81,4 +116,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

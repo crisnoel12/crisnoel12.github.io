@@ -1,188 +1,122 @@
-import React from 'react';
-import { makeStyles, Button, Card, CardActions, CardContent, CardHeader, Chip, Divider, Grid, Link, Tab, Tabs, Typography } from '@material-ui/core';
-
-import { PROJECT } from '../../Types';
-import HomePageSection from '../Layouts/HomePageSection';
-import TabPanel from '../Layouts/TabPanel';
-
-const useStyles = makeStyles((theme) => ({
-  projectTabStyle: {
-    marginBottom: theme.spacing(4)
-  },
-  workProjectContainer: {
-    height: '100%',
-    position: 'relative'
-  },
-  personalProjectContainer: {
-    display: 'block',
-    position: 'relative',
-    marginBottom: theme.spacing(1),
-  },
-  personalProjectBG: {
-    position: 'absolute',
-    top: 0,
-    width: '100%',
-    height: '100%',
-    textAlign: 'center',
-    background: 'rgba(178, 34, 34, 0.9)',
-    color: 'white',
-    opacity: 0,
-    '-webkit-transition': 'all ease 0.5s',
-    '-moz-transition': 'all ease 0.5s',
-    transition: 'all ease 0.5s',
-    '&:hover': {
-      opacity: 1
-    }
-  },
-  personalProjectTxtContainer: {
-    position: 'absolute',
-    top: '40%',
-    left: '50%',
-    transform: 'translate(-50%, -40%)',
-    width: '90%',
-  },
-  noProjectsText: {
-    marginTop: theme.spacing(5)
-  },
-  workEmptyDiv: {
-    height: theme.spacing(14)
-  },
-  workCardAction: {
-    display: 'block',
-    alignItems: 'unset',
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
-    padding: 0
-  },
-  workTechnologyContainer: {
-    padding: `${theme.spacing(0)}px ${theme.spacing(1)}px`
-  },
-  workBtnStyle: {
-    borderRadius: 0
-  },
-  technologyChip: {
-    marginRight: theme.spacing(0.5),
-    marginBottom: theme.spacing(0.5)
-  },
-  divider: {
-    marginBottom: theme.spacing(1)
-  },
-  tabPanelStyle: {
-    justifyContent: 'center'
-  }
-}));
+import React from "react";
+import { PROJECT } from "../../Types";
+import HomePageSection from "../HomePageSection";
+import * as projectSectionStyles from "../../styles/Sections/projects.module.css";
+import Button from "../Button";
+import Divider from "../Divider";
+import { Link } from "gatsby";
 
 const PROJECT_TYPE = {
   PERSONAL: {
     NAME: "Personal",
-    VALUE: 0
+    VALUE: 0,
   },
   WORK: {
     NAME: "Work",
-    VALUE: 1
-  }
-}
+    VALUE: 1,
+  },
+};
 
 interface Props {
-  personalProjects: PROJECT[],
-  workProjects: PROJECT[]
+  personalProjects: PROJECT[];
+  workProjects: PROJECT[];
 }
 
-export default function Projects({ personalProjects, workProjects }: Props) {
-  const classes = useStyles();
-  const [projectTab, setProjectTab] = React.useState(PROJECT_TYPE.PERSONAL.VALUE);
+const Projects: React.FC<Props> = ({ personalProjects, workProjects }) => {
+  const [projectTab, setProjectTab] = React.useState(
+    PROJECT_TYPE.PERSONAL.VALUE
+  );
 
-  const changeProjectTab = (event, value) => setProjectTab(value);
+  const changeProjectTab = (value) => setProjectTab(value);
 
-  const renderProjectType = (projectType) => {
-    if (projectType === PROJECT_TYPE.WORK.VALUE) {
+  const renderProjectType = (projectType: any) => {
+    if (projectType === PROJECT_TYPE.PERSONAL.VALUE) {
       return (
-        workProjects && workProjects.length > 0 ? workProjects.map(project => (
-          <Grid key={project.id} item xs={12} md={6} lg={4}>
-            <Card className={classes.workProjectContainer}>
-              <CardHeader
-                title={project.title}
-                subheader={<Divider />}
-              />
-              <CardContent>
-                <Typography variant="body1" color="textSecondary" component="p">
-                  {project.description.description}
-                </Typography>
-              </CardContent>
-              <div className={classes.workEmptyDiv} /> {/* Empty div */}
-              <CardActions disableSpacing classes={{ root: classes.workCardAction }}>
-                <Divider className={classes.divider} />
-                <div className={classes.workTechnologyContainer}>
-                  {project.technologies.map(technology => (
-                    <Chip key={`${project.id}_${technology}`} label={<Typography variant={"caption"}>{technology}</Typography>} size={"small"} className={classes.technologyChip} />
-                  ))}
-                </div>
-                <Divider className={classes.divider} />
-                <Link 
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <Button 
-                    fullWidth 
-                    variant={"contained"} 
-                    classes={{ root: classes.workBtnStyle }}
-                    color={"primary"}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+          {personalProjects && personalProjects.length > 0 ? (
+            personalProjects.map((project) => (
+              <Link
+                key={project.id}
+                to={project.url}
+                target="_blank"
+                className="block relative"
+              >
+                <img
+                  src={`https:${project.image.file.url}`}
+                  width="100%"
+                  className={"h-full"}
+                />
+                <div className={projectSectionStyles.personalProjectBG}>
+                  <div
+                    className={projectSectionStyles.personalProjectTxtContainer}
                   >
-                      View
-                    </Button>
-                </Link>
-              </CardActions>
-            </Card>
-          </Grid>
-        )) : <Typography className={classes.noProjectsText}>{`No ${PROJECT_TYPE.WORK.NAME} Projects to Show.`}</Typography>
-      )
-    } else { // Personal Project
-      return (
-        personalProjects && personalProjects.length > 0 ? personalProjects.map(project => (
-          <Grid key={project.id} item xs={12} md={6} lg={4}>
-            <Link 
-              href={project.url} 
-              classes={{ root: classes.personalProjectContainer}}
-              target="_blank"
-              rel="noopener"
-            >
-              <img src={`https:${project.image.file.url}`} width="100%" />
-              <div className={classes.personalProjectBG}>
-                <div className={classes.personalProjectTxtContainer}>
-                  <Typography variant={"h6"}>{project.title}</Typography>
-                  <Typography variant={"body1"}>{project.description.description}</Typography>
+                    <p className={"permanentMarker text-2xl mb-4"}>
+                      {project.title}
+                    </p>
+                    <p className={"text-sm"}>
+                      {project.description.description}
+                    </p>
+                  </div>
                 </div>
+              </Link>
+            ))
+          ) : (
+            <p>No Projects to show.</p>
+          )}
+        </div>
+      );
+    } else {
+      return (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+          {workProjects && workProjects.length > 0 ? (
+            workProjects.map((project) => (
+              <div
+                key={project.id}
+                className={
+                  "flex flex-col border-solid border-2 border-grey-300 rounded p-8"
+                }
+              >
+                <div>
+                  <h6 className={"permanentMarker text-lg mb-2"}>
+                    {project.title}
+                  </h6>
+                  <Divider />
+                </div>
+                <p className={"mb-8"}>{project.description.description}</p>
+                <Button href={project.url} target={"_blank"} styles={"mt-auto"}>
+                  VIEW
+                </Button>
               </div>
-            </Link>
-            {project.technologies.map(technology => (
-              <Chip key={`${project.id}_${technology}`} label={<Typography variant={"caption"}>{technology}</Typography>} size={"small"} className={classes.technologyChip} />
-            ))}
-          </Grid>
-        )) : <Typography className={classes.noProjectsText}>{`No ${PROJECT_TYPE.PERSONAL.NAME} Projects to Show.`}</Typography>
-      )
+            ))
+          ) : (
+            <p>No Projects to show.</p>
+          )}
+        </div>
+      );
     }
-  }
+  };
+
   return (
-    <HomePageSection title={"Projects"}>
-      <Tabs
-        value={projectTab}
-        onChange={changeProjectTab}
-        indicatorColor="primary"
-        textColor="primary"
-        centered
-        className={classes.projectTabStyle}
-      >
-        <Tab label={PROJECT_TYPE.PERSONAL.NAME} />
-        <Tab label={PROJECT_TYPE.WORK.NAME} />
-      </Tabs>
-      <TabPanel value={projectTab} index={0} className={classes.tabPanelStyle}>
-        {renderProjectType(PROJECT_TYPE.PERSONAL.VALUE)}
-      </TabPanel>
-      <TabPanel value={projectTab} index={1} className={classes.tabPanelStyle}>
-        {renderProjectType(PROJECT_TYPE.WORK.VALUE)}
-      </TabPanel>
+    <HomePageSection title={"projects"}>
+      <div className="grid grid-cols-2 justify-center">
+        {Object.keys(PROJECT_TYPE).map((key) => (
+          <button
+            key={PROJECT_TYPE[key].VALUE}
+            className={
+              projectTab === PROJECT_TYPE[key].VALUE
+                ? "font-medium text-red-800 border-b-2 border-red-800 mb-5"
+                : "mb-5"
+            }
+            onClick={() => changeProjectTab(PROJECT_TYPE[key].VALUE)}
+          >
+            {PROJECT_TYPE[key].NAME}
+          </button>
+        ))}
+      </div>
+
+      {renderProjectType(projectTab)}
     </HomePageSection>
-  )
-}
+  );
+};
+
+export default Projects;

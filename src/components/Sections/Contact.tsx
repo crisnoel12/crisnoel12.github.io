@@ -1,181 +1,171 @@
-import React from 'react';
-import { makeStyles, Button, CircularProgress, Grid, Snackbar, TextField } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
-import axios from 'axios';
-import SendIcon from '@material-ui/icons/Send';
-import RotateLeftIcon from '@material-ui/icons/RotateLeft';
+import React, { useContext, useRef } from "react";
+import HomePageSection from "../HomePageSection";
+import { IoMdSend } from "react-icons/io";
+import { BiReset } from "react-icons/bi";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import emailjs from "@emailjs/browser";
+import Map from "../Map";
+import ServerStateContext from "../../context/ServerStateContext";
+import { IContactField } from "../../Types";
 
-import HomePageSection from '../Layouts/HomePageSection';
+const Contact: React.FC = () => {
+  const form = useRef();
 
-const useStyles = makeStyles((theme) => ({
-  textField: {
-    marginBottom: theme.spacing(1),
-    borderBottom: 0
-  },
-  buttonGroup: {
-    marginTop: theme.spacing(1),
-    textAlign: 'right'
-  },
-  map: {
-    width: '100%',
-    height: '375px'
-  },
-  sendBtn: {
-    marginRight: theme.spacing(1)
-  },
-  resetBtn: {
-    borderColor: `${theme.palette.type === 'light' ? theme.palette.common.black: 'white'}`,
-    color: `${theme.palette.type === 'light' ? theme.palette.common.black: 'white'}`,
-    '&:hover': {
-      borderColor: `${theme.palette.type === 'light' ? theme.palette.common.black: 'white'}`,
-      backgroundColor: `${theme.palette.type === 'light' ? theme.palette.common.black: 'white'}`,
-      background: theme.palette.secondary.main,
-      color: `${theme.palette.type === 'light' ? theme.palette.common.white : theme.palette.common.black}`
-    }
-  }
-}));
-
-export default function Contact() {
-  const classes = useStyles();
   const [inputs, setInputs] = React.useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
-  const [serverState, setServerState] = React.useState({
-    submitting: false,
-    status: null
-  });
-  const [showSnackBar, setShowSnackBar] = React.useState(false);
 
-  const handleOnChange = event => {
+  const { serverState, setServerState, handleServerResponse }: any =
+    useContext(ServerStateContext);
+
+  const handleOnChange = (event: any) => {
     event.persist();
-    setInputs(prev => ({
+    setInputs((prev) => ({
       ...prev,
-      [event.target.id]: event.target.value
+      [event.target.id]: event.target.value,
     }));
   };
 
-  const handleServerResponse = (ok, msg) => {
-    setServerState({
-      submitting: false,
-      status: { ok, msg }
-    });
-    if (ok) handleReset();
-  };
-
-  const handleOnSubmit = event => {
+  const handleOnSubmit = (event: any) => {
     event.preventDefault();
     setServerState({ submitting: true });
-    axios({
-      method: "POST",
-      url: "https://formspree.io/f/mleoygvo",
-      data: inputs
-    })
-      .then(r => {
-        handleServerResponse(true, "Message sent successfully!");
-        setShowSnackBar(true);
-      })
-      .catch(r => {
-        handleServerResponse(false, "There was an error trying to submit your request.");
-        setShowSnackBar(true);
-      });
+    emailjs
+      .sendForm(
+        `${process.env.EMAILJS_SERVICE_ID}`,
+        `${process.env.EMAILJS_TEMPLATE_ID}`,
+        form.current,
+        `${process.env.EMAILJS_PUBLIC_ID}`
+      )
+      .then(
+        (result) => {
+          handleServerResponse(result.status, "Message sent successfully!");
+          handleReset();
+          console.log(result.text);
+        },
+        (error) => {
+          handleServerResponse(
+            error.status,
+            "There was an error trying to submit your request."
+          );
+          console.log(error);
+        }
+      );
   };
 
   const handleReset = () => {
     setInputs({
       name: "",
       email: "",
-      message: ""
+      message: "",
     });
-  }
+  };
+
+  const contactFields: IContactField[] = [
+    {
+      id: "to_name",
+      name: "to_name",
+      type: "hidden",
+      value: "Cris",
+    },
+    {
+      id: "from_name",
+      name: "from_name",
+      type: "hidden",
+      value: "crisnoel12.github.io",
+    },
+    {
+      id: "name",
+      name: "user_name",
+      placeholder: "NAME*",
+      value: inputs.name,
+      onChange: handleOnChange,
+      required: true,
+    },
+    {
+      id: "email",
+      name: "reply_to",
+      type: "email",
+      placeholder: "E-MAIL*",
+      value: inputs.email,
+      onChange: handleOnChange,
+      required: true,
+    },
+    {
+      id: "message",
+      name: "message",
+      placeholder: "MESSAGE*",
+      value: inputs.message,
+      onChange: handleOnChange,
+      rows: 8,
+      required: true,
+    },
+  ];
+
+  const contactFieldClassName =
+    "w-full mb-3 p-5 bg-gray-200 border-solid border-b-2 border-gray-500 rounded";
 
   return (
-    <HomePageSection title={"Contact"} divider={false}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} lg={7}>
-        <form onSubmit={handleOnSubmit} noValidate autoComplete="off">
-          <TextField 
-            id="name"
-            name="name"
-            label="NAME" 
-            onChange={handleOnChange}
-            value={inputs.name} 
-            className={classes.textField}
-            fullWidth 
-            variant="filled" 
-            required 
-          />
-          <TextField 
-            id="email"
-            name="email"
-            type="email"
-            label="E-MAIL"
-            onChange={handleOnChange}
-            value={inputs.email}
-            className={classes.textField} 
-            fullWidth 
-            variant="filled" 
-            required 
-          />
-          <TextField 
-            id="message"
-            name="message"
-            label="MESSAGE"
-            onChange={handleOnChange}
-            value={inputs.message}
-            className={classes.textField} 
-            fullWidth 
-            variant="filled" 
-            multiline={true}
-            rows={8}
-            required
-          />
-          <div className={classes.buttonGroup}>
-            <Button 
-              startIcon={<SendIcon />} 
-              color={"primary"} 
-              variant={"contained"} 
-              size={"large"}
-              className={classes.sendBtn}
+    <HomePageSection title={"contact"} noDivider>
+      <div className="grid lg:grid-cols-2 gap-4">
+        <form
+          ref={form}
+          onSubmit={handleOnSubmit}
+          noValidate
+          autoComplete="off"
+        >
+          {contactFields.map((field: IContactField) => {
+            if (!field.rows) {
+              return (
+                <input
+                  key={field.id}
+                  {...field}
+                  className={contactFieldClassName}
+                />
+              );
+            }
+            return (
+              <textarea
+                key={field.id}
+                {...field}
+                className={contactFieldClassName}
+              />
+            );
+          })}
+          <div className={"flex justify-end"}>
+            <button
               type="submit"
+              className={
+                "bg-red-700 border-2 border-red-700 w-full lg:w-36 p-2 rounded text-white mr-2"
+              }
               disabled={serverState.submitting}
             >
-              {!serverState.submitting ? 'SEND' : <CircularProgress size={20} />}
-            </Button>
-            <Button 
-              startIcon={<RotateLeftIcon />} 
-              color={"secondary"} 
-              variant={"outlined"} 
-              size={"large"}
-              className={classes.resetBtn}
+              {!serverState.submitting ? (
+                <div className="inline-flex items-center">
+                  <IoMdSend className="h-5 w-5 mr-2" color={"white"} />
+                  <span>SEND</span>
+                </div>
+              ) : (
+                <AiOutlineLoading3Quarters className="animate-spin h-5 w-5 text-white mx-auto" />
+              )}
+            </button>
+            <button
+              type={"reset"}
+              className="border-2 border-black w-full lg:w-36 p-2 rounded"
               onClick={handleReset}
             >
-              RESET
-            </Button>
+              <div className="inline-flex items-center">
+                <BiReset className="h-5 w-5 mr-2" color={"black"} />
+                <span>RESET</span>
+              </div>
+            </button>
           </div>
         </form>
-        </Grid>
-        <Grid item  xs={12} lg={5}>
-          <iframe 
-            id="map"
-            frameBorder="0"
-            className={classes.map}
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDV2mJDjLBrrPdVGXSr0ajaV2WBSMwB_HI
-              &q=Cavite&maptype=satellite" allowFullScreen>
-          </iframe>
-        </Grid>
-      </Grid>
-      <Snackbar 
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-        open={showSnackBar} 
-        autoHideDuration={3000} 
-        onClose={() => setShowSnackBar(false)}
-      >
-        <Alert onClose={() => setShowSnackBar(false)} severity={showSnackBar && serverState.status.ok ? 'success' : 'error'}>
-          {showSnackBar && serverState.status.msg}
-        </Alert>
-      </Snackbar>
+        <Map />
+      </div>
     </HomePageSection>
-  )
-}
+  );
+};
+
+export default Contact;

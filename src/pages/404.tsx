@@ -1,53 +1,18 @@
 import * as React from "react";
-import { Typography, Link, Grid, Button, makeStyles } from "@material-ui/core";
+import { Link, HeadFC, PageProps } from "gatsby";
+import MainContainer from "../components/MainContainer";
+import Hero from "../components/Hero";
 
-import MainContainer from "../components/Layouts/MainContainer";
-import PageHelmet from "../components/Utils/PageHelmet";
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    height: 'calc(100vh - 201px)'
-  },
-  center: {
-    textAlign: 'center'
-  }
-}));
-
-const NotFoundPage = () => {
-  const classes = useStyles();
+const NotFoundPage: React.FC<PageProps> = (props) => {
   return (
-    <MainContainer>
-      <PageHelmet 
-        title={'Cris Noel | 404'}
-        href={`${process.env.DOMAIN}/404`}
-      />
-      <Grid container justify={"center"} className={classes.root}>
-        <div className={classes.center}>
-          <iframe 
-            title={"404"} 
-            src="https://giphy.com/embed/VwoJkTfZAUBSU" 
-            width="332" 
-            height="470" 
-            frameBorder="0"
-            allowFullScreen
-          >
-          </iframe>
-          <Typography>
-            <Link
-              href="https://giphy.com/gifs/89a-eightninea-VwoJkTfZAUBSU"
-            >
-              via GIPHY
-            </Link>
-          </Typography>
-          <Link href={"/"}>
-            <Button variant={"outlined"} color={"primary"}>
-              <Typography>Return Home</Typography>
-            </Button>
-          </Link>
-        </div>
-      </Grid>
+    <MainContainer
+      title="Cris Noel | 404"
+      href={`${process.env.DOMAIN}/404`}
+      is404
+    >
+      <Hero is404 />
     </MainContainer>
-  )
-}
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;

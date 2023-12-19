@@ -1,3 +1,5 @@
+import { GatsbyImageProps } from "gatsby-plugin-image"
+
 export default interface POST {
   id: string,
   contentful_id: string,
@@ -11,5 +13,10 @@ export default interface POST {
   },
   content: {
     raw: string
+    references: {
+      contentful_id: string
+      id: string
+      gatsbyImageData: GatsbyImageProps
+    }
   }
 }
