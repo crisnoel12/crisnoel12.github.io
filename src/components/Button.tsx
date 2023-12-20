@@ -10,7 +10,7 @@ interface Props {
 
 export default function Button(props: Props) {
   const { href, target, styles } = props;
-  const buttonStyles = `block bg-red-700 hover:bg-red-800 transition ease-in-out text-white rounded p-2 text-center ${
+  const buttonStyles = `block bg-primary hover:bg-primary-800 transition ease-in-out text-white rounded p-2 text-center ${
     styles && styles
   }`;
 

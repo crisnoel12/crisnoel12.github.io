@@ -26,7 +26,9 @@ const BlogPreview: React.FC<Props> = ({ data }: Props) => {
       <Excerpt excerpt={excerpt} />
       <Link
         to={`/blog/${slug}`}
-        className={"mt-3 text-sm text-left text-red-700"}
+        className={
+          "mt-3 text-sm text-left text-primary hover:text-primary-800 transition ease-in-out"
+        }
       >
         Read More →
       </Link>
