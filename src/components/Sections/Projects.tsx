@@ -4,7 +4,6 @@ import HomePageSection from "../HomePageSection";
 import * as projectSectionStyles from "../../styles/Sections/projects.module.css";
 import Button from "../Button";
 import Divider from "../Divider";
-import { Link } from "gatsby";
 
 const PROJECT_TYPE = {
   PERSONAL: {
@@ -35,9 +34,9 @@ const Projects: React.FC<Props> = ({ personalProjects, workProjects }) => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
           {personalProjects && personalProjects.length > 0 ? (
             personalProjects.map((project) => (
-              <Link
+              <a
                 key={project.id}
-                to={project.url}
+                href={project.url}
                 target="_blank"
                 className="block relative"
               >
@@ -58,7 +57,7 @@ const Projects: React.FC<Props> = ({ personalProjects, workProjects }) => {
                     </p>
                   </div>
                 </div>
-              </Link>
+              </a>
             ))
           ) : (
             <p>No Projects to show.</p>

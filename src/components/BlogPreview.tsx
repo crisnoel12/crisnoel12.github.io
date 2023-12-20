@@ -25,7 +25,7 @@ const BlogPreview: React.FC<Props> = ({ data }: Props) => {
       <BlogPreviewMetaData date={date} content={content.raw} />
       <Excerpt excerpt={excerpt} />
       <Link
-        href={`/blog/${slug}`}
+        to={`/blog/${slug}`}
         className={"mt-3 text-sm text-left text-red-700"}
       >
         Read More →

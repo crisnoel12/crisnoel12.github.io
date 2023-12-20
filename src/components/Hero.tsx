@@ -49,7 +49,7 @@ const Hero: React.FC<Props> = ({ is404 = false }) => {
         )}
       </div>
       {!is404 && (
-        <Link style={heroArrow} href="#about">
+        <Link to="#about" style={heroArrow}>
           <FaChevronDown
             className={
               "text-white bg-black/[0.8] w-7 h-7 my-0 mx-auto mt-3 rounded-full p-2"

@@ -3,7 +3,6 @@ import React from "react";
 import GatsbyLogo from "../images/Gatsby_Logo.png";
 import TailwindLogo from "../images/tailwindcss-logotype.svg";
 import Divider from "./Divider";
-import { Link } from "gatsby";
 
 const Footer: React.FC = () => {
   const d = new Date();
@@ -11,7 +10,7 @@ const Footer: React.FC = () => {
 
   const Copy = () => <span>&copy;</span>;
   const GatsbyLink = () => (
-    <Link to={"https://www.gatsbyjs.com/"}>
+    <a href={"https://www.gatsbyjs.com/"}>
       <span>
         <img
           src={GatsbyLogo}
@@ -19,11 +18,11 @@ const Footer: React.FC = () => {
           className={"inline-block h-6 w-24"}
         />
       </span>
-    </Link>
+    </a>
   );
 
   const TailwindLink = () => (
-    <Link to={"https://tailwindcss.com/"}>
+    <a href={"https://tailwindcss.com/"}>
       <span>
         <img
           src={TailwindLogo}
@@ -31,7 +30,7 @@ const Footer: React.FC = () => {
           className={"inline-block h-12 w-32"}
         />
       </span>
-    </Link>
+    </a>
   );
 
   return (

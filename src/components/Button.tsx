@@ -13,11 +13,21 @@ export default function Button(props: Props) {
   const buttonStyles = `block bg-red-700 text-white rounded p-2 text-center ${
     styles && styles
   }`;
-  return href ? (
-    <Link to={href} target={target} className={buttonStyles}>
-      {props.children}
-    </Link>
-  ) : (
-    <button className={buttonStyles}>{props.children}</button>
-  );
+
+  if (href) {
+    if (target && target === "_blank") {
+      return (
+        <a href={href} target={target} className={buttonStyles}>
+          {props.children}
+        </a>
+      );
+    } else {
+      return (
+        <Link to={href} target={target} className={buttonStyles}>
+          {props.children}
+        </Link>
+      );
+    }
+  }
+  return <button className={buttonStyles}>{props.children}</button>;
 }
