@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
             <button
               type="submit"
               className={
-                "bg-red-700 border-2 border-red-700 w-full lg:w-36 p-2 rounded text-white mr-2"
+                "bg-red-700 border-2 border-red-700 hover:bg-red-800 hover:border-red-800 transition ease-in-out w-full lg:w-36 p-2 rounded text-white mr-2"
               }
               disabled={serverState.submitting}
             >
@@ -152,11 +152,11 @@ const Contact: React.FC = () => {
             </button>
             <button
               type={"reset"}
-              className="border-2 border-black w-full lg:w-36 p-2 rounded"
+              className="border-2 border-black hover:bg-black hover:text-white transition ease-in-out w-full lg:w-36 p-2 rounded"
               onClick={handleReset}
             >
               <div className="inline-flex items-center">
-                <BiReset className="h-5 w-5 mr-2" color={"black"} />
+                <BiReset className="h-5 w-5 mr-2" />
                 <span>RESET</span>
               </div>
             </button>
