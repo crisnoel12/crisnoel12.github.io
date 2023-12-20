@@ -20,12 +20,11 @@ const Experience: React.FC<Props> = ({ experiences }) => {
                 className={"h-16 w-16 mr-5"}
               />
               <div>
-                <h5 className="font-medium text-xl lg:text-2xl">
+                <h5 className="font-bold text-xl lg:text-2xl">
                   {experience.position}
                 </h5>
-                <h6 className="font-medium text-xl lg:text-2xl">
-                  <span className="text-red-800">@ </span>
-                  <span className="underline">{experience.company}</span>
+                <h6 className="font-medium text-gray-700 lg:text-lg">
+                  {experience.company}
                 </h6>
               </div>
             </div>
