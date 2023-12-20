@@ -16,7 +16,7 @@ const Blog: React.FC = ({ data }: any) => {
     >
       <div className="mt-16"></div>
       <HeaderText>Blog</HeaderText>
-      <div className="grid mx-auto md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="grid mx-auto mb-16 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl px-2 sm:px-6 lg:px-8">
         {posts.map((post) => {
           const { title, date, image, content, slug } = post;
           const excerpt = JSON.parse(post.content.raw).content.find(
