@@ -30,7 +30,9 @@ export default function MainContainer(props: Props) {
   const [darkMode, setDarkMode] = useState(
     JSON.parse(
       (typeof window !== "undefined" && window.localStorage.darkMode) ||
-        (!localStorage.hasOwnProperty("darkMode") && darkModeSystem.matches)
+        (typeof window !== "undefined" &&
+          !window.localStorage.hasOwnProperty("darkMode") &&
+          darkModeSystem.matches)
     )
   );
 
