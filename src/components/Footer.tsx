@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
         <img
           src={!darkMode ? GatsbyLogo : GatsbyLogoWhite}
           alt={"Gatsby.js Logo"}
-          className={"inline-block h-6 w-24"}
+          className={"inline-block h-4 w-18 md:h-6 md:w-24"}
         />
       </span>
     </a>
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
         <img
           src={!darkMode ? TailwindLogo : TailwindLogoWhite}
           alt={"Tailwindcss.com Logo"}
-          className={"inline-block h-12 w-32"}
+          className={"inline-block h-4 w-20 md:h-12 md:w-32"}
         />
       </span>
     </a>
@@ -42,8 +42,10 @@ const Footer: React.FC = () => {
     <>
       <Divider />
       <div className="text-center p-4 w-full">
-        <p className={"font-bold"}>
-          {year} <Copy /> CRIS N. CANCINO | Built with: <TailwindLink /> &{" "}
+        <p className={"font-semibold text-xs md:text-base"}>
+          {year} <Copy /> CRIS N. CANCINO{" "}
+          <span className={`hidden md:inline-block`}>|</span>
+          <br className="md:hidden" /> Built with: <TailwindLink /> &{" "}
           <GatsbyLink />.
         </p>
       </div>

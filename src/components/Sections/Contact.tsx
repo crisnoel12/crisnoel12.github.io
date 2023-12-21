@@ -7,6 +7,7 @@ import emailjs from "@emailjs/browser";
 import ServerStateContext from "../../context/ServerStateContext";
 import { IContactField } from "../../Types";
 import GoogleMap from "../GoogleMap";
+import { handleServerResponse } from "../../Utils";
 
 const Contact: React.FC = () => {
   const form = useRef();
@@ -17,8 +18,7 @@ const Contact: React.FC = () => {
     message: "",
   });
 
-  const { serverState, setServerState, handleServerResponse }: any =
-    useContext(ServerStateContext);
+  const { serverState, setServerState }: any = useContext(ServerStateContext);
 
   const handleOnChange = (event: any) => {
     event.persist();
@@ -40,12 +40,17 @@ const Contact: React.FC = () => {
       )
       .then(
         (result) => {
-          handleServerResponse(result.status, "Message sent successfully!");
+          handleServerResponse(
+            setServerState,
+            result.status,
+            "Message sent successfully!"
+          );
           handleReset();
           console.log(result.text);
         },
         (error) => {
           handleServerResponse(
+            setServerState,
             error.status,
             "There was an error trying to submit your request."
           );

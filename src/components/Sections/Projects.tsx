@@ -72,7 +72,7 @@ const Projects: React.FC<Props> = ({ personalProjects, workProjects }) => {
               <div
                 key={project.id}
                 className={
-                  "flex flex-col border-solid border-2 border-neutral-300 dark:border-neutral-600 rounded p-8"
+                  "flex flex-col border-solid border-2 border-neutral-300 dark:border-neutral-600 rounded p-6"
                 }
               >
                 <div>
