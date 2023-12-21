@@ -24,7 +24,9 @@ export default function MainContainer(props: Props) {
     response: null,
   });
 
-  const darkModeSystem = window.matchMedia("(prefers-color-scheme: dark)");
+  const darkModeSystem =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-color-scheme: dark)");
   const [darkMode, setDarkMode] = useState(
     JSON.parse(
       localStorage.darkMode ||
