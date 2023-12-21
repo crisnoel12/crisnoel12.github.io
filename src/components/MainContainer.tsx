@@ -1,11 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import PageHelmet from "../Utils/PageHelmet";
 import Footer from "./Footer";
 import "react-toastify/dist/ReactToastify.min.css";
 import { IServerState } from "../Types";
 import ServerStateContext from "../context/ServerStateContext";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
+import { setLocalStorageItem } from "../Utils";
+import DarkModeContext from "../context/DarkModeContext";
+import ThemeButton from "./ThemeButton";
+import Notifications from "./Notifications";
 
 interface Props {
   title: string;
@@ -15,10 +19,23 @@ interface Props {
 }
 
 export default function MainContainer(props: Props) {
-  const [serverState, setServerState] = React.useState<IServerState>({
+  const [serverState, setServerState] = useState<IServerState>({
     submitting: false,
     response: null,
   });
+
+  const darkModeSystem = window.matchMedia("(prefers-color-scheme: dark)");
+  const [darkMode, setDarkMode] = useState(
+    JSON.parse(
+      localStorage.darkMode ||
+        (!localStorage.hasOwnProperty("darkMode") && darkModeSystem.matches)
+    )
+  );
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    setLocalStorageItem("darkMode", !darkMode);
+  };
 
   useEffect(() => {
     serverState.response && notify();
@@ -57,24 +74,18 @@ export default function MainContainer(props: Props) {
     <ServerStateContext.Provider
       value={{ serverState, setServerState, handleServerResponse }}
     >
-      <div className={"grid h-full"}>
-        <PageHelmet title={title} href={href} />
-        {!is404 && <Navbar />}
-        {props.children}
-        <ToastContainer
-          position="bottom-left"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
-        />
-        {!is404 && <Footer />}
-      </div>
+      <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
+        <div className={`grid h-auto ${darkMode ? "dark" : ""}`}>
+          <PageHelmet title={title} href={href} />
+          <div className={"dark:bg-neutral-900 dark:text-white"}>
+            {!is404 && <Navbar />}
+            {props.children}
+            <Notifications />
+            <ThemeButton />
+            {!is404 && <Footer />}
+          </div>
+        </div>
+      </DarkModeContext.Provider>
     </ServerStateContext.Provider>
   );
 }

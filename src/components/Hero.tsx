@@ -14,9 +14,9 @@ const heroStyles = {
 
 const heroArrow = {
   position: "absolute",
-  top: "80%",
+  top: "90%",
   left: "50%",
-  transform: "translate(-50%, -80%)",
+  transform: "translate(-50%, -90%)",
 };
 
 interface Props {
@@ -28,23 +28,26 @@ const Hero: React.FC<Props> = ({ is404 = false }) => {
     <div style={heroStyles}>
       <div
         id="hero-mid"
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center ${
-          is404 && `w-full p-8 bg-black/[0.6]`
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full ${
+          is404 && `p-8 bg-black/[0.6]`
         }`}
       >
         <h1
           id="hero-headline"
-          className="permanentMarker text-6xl text-white tracking-wider mb-3"
+          className="permanentMarker font-semibold text-4xl w-full md:text-6xl text-white mb-3 tracking-wider"
         >
-          {is404 ? "Page Not Found" : "Cris Noel"}
+          {is404 ? "Page Not Found" : "CRIS NOEL"}
         </h1>
         {is404 ? (
           <Link to={`${process.env.DOMAIN}`} className={"text-red-700"}>
             Go Home
           </Link>
         ) : (
-          <p id="hero-subheading" className="text-white mt-5">
-            Web Developer / Cavite, Philippines
+          <p
+            id="hero-subheading"
+            className="text-white text-xs md:text-base mt-5 font-medium tracking-wide"
+          >
+            WEB DEVELOPER - CAVITE, PHILIPPINES
           </p>
         )}
       </div>
@@ -52,7 +55,7 @@ const Hero: React.FC<Props> = ({ is404 = false }) => {
         <Link to="#about" style={heroArrow}>
           <FaChevronDown
             className={
-              "text-white bg-black/[0.8] w-7 h-7 my-0 mx-auto mt-3 rounded-full p-2"
+              "text-white bg-black/[0.8] w-8 h-8 my-0 mx-auto mt-3 rounded-full p-2"
             }
           />
         </Link>

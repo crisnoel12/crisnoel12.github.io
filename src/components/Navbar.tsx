@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
-              <div className="flex flex-1 items-center justify-between items-stretch justify-start">
+              <div className="flex flex-1 items-center justify-between">
                 {/* LOGO */}
                 <div className="flex flex-shrink-0 items-center">
                   <Link to="/">

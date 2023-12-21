@@ -9,7 +9,7 @@ interface Props {
 
 export default function IconButton(props: Props) {
   const { href, target, icon } = props;
-  const iconButtonStyles = `p-2 rounded-full hover:bg-gray-200`;
+  const iconButtonStyles = `p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700`;
   if (target === "_blank") {
     return (
       <a href={href} target={target} className={iconButtonStyles}>

@@ -4,7 +4,7 @@
 
 @layer components {
   .subtitle {
-    @apply pl-2 border-l-4 border-red-700
+    @apply pl-2 border-l-4 border-primary;
   }
 }
 
@@ -18,14 +18,16 @@ body,
 }
 
 body {
-  font-family: "montserrat"
+  font-family: "montserrat";
 }
 
 textarea {
   resize: none;
 }
 
-ol, ul, menu {
+ol,
+ul,
+menu {
   margin: 0;
   padding: 0 32px;
 }
@@ -39,5 +41,5 @@ ol {
 }
 
 .permanentMarker {
-  font-family: "Permanent Marker"
+  font-family: "Permanent Marker";
 }

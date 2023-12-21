@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
   ];
 
   const contactFieldClassName =
-    "w-full mb-3 p-5 bg-gray-200 border-solid border-b-2 border-gray-500 rounded";
+    "w-full mb-3 p-5 bg-neutral-200 dark:bg-neutral-800 border-solid border-b-2 border-neutral-500 rounded";
 
   return (
     <HomePageSection title={"contact"} noDivider>
@@ -152,7 +152,7 @@ const Contact: React.FC = () => {
             </button>
             <button
               type={"reset"}
-              className="border-2 border-black hover:bg-black hover:text-white transition ease-in-out w-full lg:w-36 p-2 rounded"
+              className="border-2 border-black hover:bg-black hover:text-white dark:border-white dark:hover:bg-white dark:hover:text-black transition ease-in-out w-full lg:w-36 p-2 rounded"
               onClick={handleReset}
             >
               <div className="inline-flex items-center">

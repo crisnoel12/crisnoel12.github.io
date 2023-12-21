@@ -23,7 +23,7 @@ const Experience: React.FC<Props> = ({ experiences }) => {
                 <h5 className="font-bold text-xl lg:text-2xl">
                   {experience.position}
                 </h5>
-                <h6 className="font-medium text-gray-700 lg:text-lg">
+                <h6 className="font-semibold text-neutral-500 lg:text-lg">
                   {experience.company}
                 </h6>
               </div>

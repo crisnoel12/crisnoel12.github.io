@@ -72,14 +72,14 @@ const Projects: React.FC<Props> = ({ personalProjects, workProjects }) => {
               <div
                 key={project.id}
                 className={
-                  "flex flex-col border-solid border-2 border-grey-300 rounded p-8"
+                  "flex flex-col border-solid border-2 border-neutral-300 dark:border-neutral-600 rounded p-8"
                 }
               >
                 <div>
                   <h6 className={"permanentMarker text-lg mb-2"}>
                     {project.title}
                   </h6>
-                  <Divider />
+                  <Divider mt={2} mb={2} />
                 </div>
                 <p className={"mb-8"}>{project.description.description}</p>
                 <Button href={project.url} target={"_blank"} styles={"mt-auto"}>
