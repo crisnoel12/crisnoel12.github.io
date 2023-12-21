@@ -18,9 +18,13 @@ export const estimatedReadTime = (richText: string) => {
 }
 
 export const getLocalStorageItem = (item: string) => {
-  return window.localStorage.getItem(item);
+  if (typeof window !== 'undefined') {
+    return window.localStorage.getItem(item);
+  }
 }
 
 export const setLocalStorageItem = (key: string, value: any) => {
-  return window.localStorage.setItem(key, value);
+  if (typeof window !== 'undefined') {
+    return window.localStorage.setItem(key, value);
+  }
 }
