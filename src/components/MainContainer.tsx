@@ -81,7 +81,7 @@ export default function MainContainer(props: Props) {
             {!is404 && <Navbar />}
             {props.children}
             <Notifications />
-            <ThemeButton />
+            {!is404 && <ThemeButton />}
             {!is404 && <Footer />}
           </div>
         </div>
