@@ -29,7 +29,7 @@ export default function MainContainer(props: Props) {
     window.matchMedia("(prefers-color-scheme: dark)");
   const [darkMode, setDarkMode] = useState(
     JSON.parse(
-      localStorage.darkMode ||
+      (typeof window !== "undefined" && localStorage.darkMode) ||
         (!localStorage.hasOwnProperty("darkMode") && darkModeSystem.matches)
     )
   );
