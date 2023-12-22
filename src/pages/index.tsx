@@ -12,7 +12,7 @@ import BlogSection from "../components/Sections/BlogSection";
 import Contact from "../components/Sections/Contact";
 import Project from "../Types/Project";
 
-interface Props {
+interface Props extends PageProps {
   data: {
     allContentfulExperience: {
       nodes: EXPERIENCE[];

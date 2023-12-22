@@ -1,23 +1,6 @@
 import React from "react";
-import HeroImg from "../images/hero.jpg";
 import { FaChevronDown } from "react-icons/fa6";
 import { Link } from "gatsby";
-
-const heroStyles = {
-  background: `url(${HeroImg}) center no-repeat`,
-  position: "relative",
-  height: "100vh",
-  backgroundSize: "cover",
-  backgroundBlendMode: "overlay",
-  backgroundColor: "rgba(80, 73, 48, 0.9)",
-};
-
-const heroArrow = {
-  position: "absolute",
-  top: "90%",
-  left: "50%",
-  transform: "translate(-50%, -90%)",
-};
 
 interface Props {
   is404?: boolean;
@@ -25,7 +8,9 @@ interface Props {
 
 const Hero: React.FC<Props> = ({ is404 = false }) => {
   return (
-    <div style={heroStyles}>
+    <div
+      className={`relative bg-[url('../images/hero.jpg')] bg-cover bg-center bg-no-repeat h-screen bg-blend-overlay bg-black/[0.4]`}
+    >
       <div
         id="hero-mid"
         className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full ${
@@ -52,7 +37,10 @@ const Hero: React.FC<Props> = ({ is404 = false }) => {
         )}
       </div>
       {!is404 && (
-        <Link to="#about" style={heroArrow}>
+        <Link
+          to="#about"
+          className={`absolute top-[90%] left-[50%] -translate-x-[50%] -translate-y-[90%]`}
+        >
           <FaChevronDown
             className={
               "text-white bg-black/[0.8] w-8 h-8 my-0 mx-auto mt-3 rounded-full p-2"

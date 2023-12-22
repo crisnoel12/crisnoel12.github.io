@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import PageHelmet from "../Utils/PageHelmet";
 import Footer from "./Footer";
 import "react-toastify/dist/ReactToastify.min.css";
-import { IServerState } from "../Types";
+import { ServerState } from "../Types";
 import ServerStateContext from "../context/ServerStateContext";
 import { darkModeInitState, notify } from "../Utils";
 import DarkModeContext from "../context/DarkModeContext";
@@ -19,7 +19,7 @@ interface Props {
 
 export default function MainContainer(props: Props) {
   const [darkMode, setDarkMode] = useState<boolean>(darkModeInitState);
-  const [serverState, setServerState] = useState<IServerState>({
+  const [serverState, setServerState] = useState<ServerState>({
     submitting: false,
     response: null,
   });

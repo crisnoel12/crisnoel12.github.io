@@ -2,7 +2,7 @@ import POST from './Post';
 import PROJECT from './Project';
 import EXPERIENCE from './Experience';
 
-interface IServerState {
+interface ServerState {
   submitting: boolean
   response?: {
     status: number
@@ -10,7 +10,7 @@ interface IServerState {
   } | null
 }
 
-interface IContactField {
+interface ContactField {
   id: string,
   name: string,
   value: string,
@@ -21,4 +21,4 @@ interface IContactField {
   required?: boolean
 }
 
-export { POST, PROJECT, EXPERIENCE, IServerState, IContactField };
+export { POST, PROJECT, EXPERIENCE, ServerState, ContactField };

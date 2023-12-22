@@ -1,18 +1,28 @@
 import React from "react";
 import { PROJECT } from "../../Types";
 import HomePageSection from "../HomePageSection";
-import * as projectSectionStyles from "../../styles/Sections/projects.module.css";
-import Button from "../Button";
-import Divider from "../Divider";
+import PersonalProject from "../PersonalProject";
+import WorkProject from "../WorkProject";
 
-const PROJECT_TYPE = {
-  PERSONAL: {
-    NAME: "Personal",
-    VALUE: 0,
+enum ProjectTypeValue {
+  zero = 0,
+  one = 1,
+}
+interface ProjectType {
+  [key: string]: {
+    name: string;
+    value: ProjectTypeValue;
+  };
+}
+
+const projectType: ProjectType = {
+  personal: {
+    name: "Personal",
+    value: 0,
   },
-  WORK: {
-    NAME: "Work",
-    VALUE: 1,
+  work: {
+    name: "Work",
+    value: 1,
   },
 };
 
@@ -23,97 +33,51 @@ interface Props {
 
 const Projects: React.FC<Props> = ({ personalProjects, workProjects }) => {
   const [projectTab, setProjectTab] = React.useState(
-    PROJECT_TYPE.PERSONAL.VALUE
+    projectType.personal.value
   );
 
-  const changeProjectTab = (value) => setProjectTab(value);
+  const changeProjectTab = (value: ProjectTypeValue) => setProjectTab(value);
 
-  const renderProjectType = (projectType: any) => {
-    if (projectType === PROJECT_TYPE.PERSONAL.VALUE) {
-      return (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {personalProjects && personalProjects.length > 0 ? (
-            personalProjects.map((project) => (
-              <a
-                key={project.id}
-                href={project.url}
-                target="_blank"
-                className="block relative"
-              >
-                <img
-                  src={`https:${project.image.file.url}`}
-                  width="100%"
-                  className={"h-full"}
-                />
-                <div className={projectSectionStyles.personalProjectBG}>
-                  <div
-                    className={projectSectionStyles.personalProjectTxtContainer}
-                  >
-                    <p className={"permanentMarker text-2xl mb-4"}>
-                      {project.title}
-                    </p>
-                    <p className={"text-sm"}>
-                      {project.description.description}
-                    </p>
-                  </div>
-                </div>
-              </a>
-            ))
-          ) : (
-            <p>No Projects to show.</p>
-          )}
-        </div>
-      );
+  const renderProjectType = () => {
+    if (projectTab === projectType.personal.value) {
+      if (personalProjects.length > 0) {
+        return personalProjects.map((project) => (
+          <PersonalProject key={project.id} project={project} />
+        ));
+      } else {
+        return <p>No Projects to show.</p>;
+      }
     } else {
-      return (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {workProjects && workProjects.length > 0 ? (
-            workProjects.map((project) => (
-              <div
-                key={project.id}
-                className={
-                  "flex flex-col border-solid border-2 border-neutral-300 dark:border-neutral-600 rounded p-6"
-                }
-              >
-                <div>
-                  <h6 className={"permanentMarker text-lg mb-2"}>
-                    {project.title}
-                  </h6>
-                  <Divider mt={2} mb={2} />
-                </div>
-                <p className={"mb-8"}>{project.description.description}</p>
-                <Button href={project.url} target={"_blank"} styles={"mt-auto"}>
-                  VIEW
-                </Button>
-              </div>
-            ))
-          ) : (
-            <p>No Projects to show.</p>
-          )}
-        </div>
-      );
+      if (workProjects.length > 0) {
+        return workProjects.map((project) => (
+          <WorkProject key={project.id} project={project} />
+        ));
+      } else {
+        return <p>No Projects to show.</p>;
+      }
     }
   };
 
   return (
     <HomePageSection title={"projects"}>
       <div className="grid grid-cols-2 justify-center">
-        {Object.keys(PROJECT_TYPE).map((key) => (
+        {Object.keys(projectType).map((key) => (
           <button
-            key={PROJECT_TYPE[key].VALUE}
+            key={projectType[key].value}
             className={
-              projectTab === PROJECT_TYPE[key].VALUE
+              projectTab === projectType[key].value
                 ? "font-medium text-red-800 border-b-2 border-red-800 mb-5"
                 : "mb-5"
             }
-            onClick={() => changeProjectTab(PROJECT_TYPE[key].VALUE)}
+            onClick={() => changeProjectTab(projectType[key].value)}
           >
-            {PROJECT_TYPE[key].NAME}
+            {projectType[key].name}
           </button>
         ))}
       </div>
-
-      {renderProjectType(projectTab)}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+        {renderProjectType()}
+      </div>
     </HomePageSection>
   );
 };

@@ -3,6 +3,7 @@ import { POST } from "../Types";
 import Excerpt from "./Excerpt";
 import BlogPreviewMetaData from "./BlogPreviewMetaData";
 import { Link } from "gatsby";
+import { Block } from "@contentful/rich-text-types";
 
 interface Props {
   data: POST;
@@ -11,7 +12,7 @@ interface Props {
 const BlogPreview: React.FC<Props> = ({ data }: Props) => {
   const { title, date, content, slug } = data;
   let excerpt = JSON.parse(content.raw).content.find(
-    (obj) => obj.nodeType === "paragraph"
+    (obj: Block) => obj.nodeType === "paragraph"
   ).content[0].value;
   return (
     <div className="flex flex-col">

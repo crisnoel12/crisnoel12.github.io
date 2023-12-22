@@ -5,12 +5,12 @@ import { BiReset } from "react-icons/bi";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import emailjs from "@emailjs/browser";
 import ServerStateContext from "../../context/ServerStateContext";
-import { IContactField } from "../../Types";
+import { ContactField } from "../../Types";
 import GoogleMap from "../GoogleMap";
 import { handleServerResponse } from "../../Utils";
 
 const Contact: React.FC = () => {
-  const form = useRef();
+  const form = useRef(null);
 
   const [inputs, setInputs] = React.useState({
     name: "",
@@ -28,14 +28,17 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleOnSubmit = (event: any) => {
+  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const currentForm = form.current;
+    if (currentForm == null) return;
+
     setServerState({ submitting: true });
     emailjs
       .sendForm(
         `${process.env.EMAILJS_SERVICE_ID}`,
         `${process.env.EMAILJS_TEMPLATE_ID}`,
-        form.current,
+        currentForm,
         `${process.env.EMAILJS_PUBLIC_ID}`
       )
       .then(
@@ -67,7 +70,7 @@ const Contact: React.FC = () => {
     });
   };
 
-  const contactFields: IContactField[] = [
+  const contactFields: ContactField[] = [
     {
       id: "to_name",
       name: "to_name",
@@ -120,7 +123,7 @@ const Contact: React.FC = () => {
           noValidate
           autoComplete="off"
         >
-          {contactFields.map((field: IContactField) => {
+          {contactFields.map((field: ContactField) => {
             if (!field.rows) {
               return (
                 <input

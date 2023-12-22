@@ -4,14 +4,23 @@ import React from 'react';
 import { IServerState } from '../Types';
 import { toast } from 'react-toastify';
 
-// MISC
-export const sortByDESC = (data) => (
-  data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-)
+interface SortObj {
+  [key: string]: any
+  createdAt: string | number | Date
+}
 
-export const sortByASC = (data) => (
-  data.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
-)
+// MISC
+export const sortByDESC = (data: any) => {
+  return data.sort((a: SortObj, b: SortObj) => {
+    return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf()
+  });
+}
+
+export const sortByASC = (data: any) => {
+  return data.sort((a: SortObj, b: SortObj) => {
+    new Date(a.createdAt).valueOf() - new Date(b.createdAt).valueOf()
+  });
+}
 
 export const capitalize = (word: string) => {
   return word.charAt(0).toUpperCase() + word.slice(1)
@@ -35,11 +44,9 @@ export const setLocalStorageItem = (key: string, value: any) => {
 
 // DARK MODE
 export const darkModeInitState = () => {
-  const darkModeSystem =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-color-scheme: dark)");
-
   if (typeof window !== "undefined") {
+    const darkModeSystem = window.matchMedia("(prefers-color-scheme: dark)");
+
     return JSON.parse(window.localStorage.darkMode || !window.localStorage.hasOwnProperty("darkMode") &&
     darkModeSystem.matches);
   }
