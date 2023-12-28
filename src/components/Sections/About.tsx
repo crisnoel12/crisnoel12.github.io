@@ -16,7 +16,7 @@ const About: React.FC = () => {
           className={"rounded h-36 w-36 mx-auto mb-5 lg:mr-8 lg:h-80 lg:w-80"}
         />
         <div>
-          <p className={"text-xl mb-5"}>
+          <p className={"md:text-xl mb-5"}>
             What's up, I'm Cris and I'm a Web Developer currently based in the
             Philippines. I have a passion for building websites and learning
             more about new frameworks and languages that I haven't mastered yet.
