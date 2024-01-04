@@ -4,9 +4,10 @@ import { Disclosure } from "@headlessui/react";
 import { FaBars, FaXmark } from "react-icons/fa6";
 import CNLogoBnW from "../images/cn-logo-bnw.png";
 import { Link } from "gatsby";
+import DarkModeContext from "../context/DarkModeContext";
+import ThemeButton from "./ThemeButton";
 
 const navigation = [
-  { name: "HOME", href: "/#", current: true },
   { name: "ABOUT", href: "/#about", current: false },
   { name: "EXPERIENCE", href: "/#experience", current: false },
   { name: "PROJECTS", href: "/#projects", current: false },
@@ -19,6 +20,7 @@ const classNames = (...classes: string[]) => {
 };
 
 const Navbar: React.FC = () => {
+  const { darkMode, setDarkMode }: any = React.useContext(DarkModeContext);
   return (
     <Disclosure as="nav" className="fixed w-full z-10 bg-red-800">
       {({ open }) => (
@@ -37,9 +39,9 @@ const Navbar: React.FC = () => {
                   </Link>
                 </div>
                 {/* Mobile menu button*/}
-                <div className="sm:hidden">
+                <div className="flex sm:hidden">
+                  <ThemeButton />
                   <Disclosure.Button className="rounded-md p-2 text-white hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                    <span className="absolute -inset-0.5" />
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <FaXmark className="block h-6 w-6" aria-hidden="true" />
@@ -49,14 +51,15 @@ const Navbar: React.FC = () => {
                   </Disclosure.Button>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-1">
+                  <div className="flex">
+                    <ThemeButton />
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
                         to={item.href}
                         className={classNames(
-                          "text-white hover:text-black hover:underline hover:decoration-solid",
-                          "rounded-md px-3 py-2 text-sm font-medium"
+                          "text-black dark:text-white hover:text-black dark:hover:text-white hover:underline hover:decoration-solid",
+                          "px-3 py-2 text-sm font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >

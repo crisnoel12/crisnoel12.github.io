@@ -1,7 +1,7 @@
 import { readingTime } from 'reading-time-estimator'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import React from 'react';
-import { IServerState } from '../Types';
+import { ServerState } from '../Types';
 import { toast } from 'react-toastify';
 
 interface SortObj {
@@ -58,7 +58,7 @@ export const toggleDarkMode = (setDarkMode: React.Dispatch<React.SetStateAction<
 };
 
 // SERVER & NOTIFICATIONS
-export const notify = (serverState: IServerState, setServerState: React.Dispatch<React.SetStateAction<IServerState>>) => {
+export const notify = (serverState: ServerState, setServerState: React.Dispatch<React.SetStateAction<ServerState>>) => {
   const resetServerState = () => setServerState({ submitting: false, response: null });
 
   if (serverState.response) {
@@ -73,7 +73,7 @@ export const notify = (serverState: IServerState, setServerState: React.Dispatch
   }
 };
 
-export const handleServerResponse = (setServerState: React.Dispatch<React.SetStateAction<IServerState>>,status: any, msg: any) => {
+export const handleServerResponse = (setServerState: React.Dispatch<React.SetStateAction<ServerState>>,status: any, msg: any) => {
   setServerState({
     submitting: false,
     response: { status, msg },

@@ -7,7 +7,6 @@ import { ServerState } from "../Types";
 import ServerStateContext from "../context/ServerStateContext";
 import { darkModeInitState, notify } from "../Utils";
 import DarkModeContext from "../context/DarkModeContext";
-import ThemeButton from "./ThemeButton";
 import Notifications from "./Notifications";
 
 interface Props {
@@ -41,7 +40,6 @@ export default function MainContainer(props: Props) {
             {!is404 && <Navbar />}
             {props.children}
             <Notifications />
-            {!is404 && <ThemeButton />}
             {!is404 && <Footer />}
           </div>
         </div>
