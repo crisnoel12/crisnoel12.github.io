@@ -4,7 +4,6 @@ import { Disclosure } from "@headlessui/react";
 import { FaBars, FaXmark } from "react-icons/fa6";
 import CNLogoBnW from "../images/cn-logo-bnw.png";
 import { Link } from "gatsby";
-import DarkModeContext from "../context/DarkModeContext";
 import ThemeButton from "./ThemeButton";
 
 const navigation = [
@@ -20,7 +19,6 @@ const classNames = (...classes: string[]) => {
 };
 
 const Navbar: React.FC = () => {
-  const { darkMode, setDarkMode }: any = React.useContext(DarkModeContext);
   return (
     <Disclosure as="nav" className="fixed w-full z-10 bg-red-800">
       {({ open }) => (
