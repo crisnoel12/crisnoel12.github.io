@@ -35,7 +35,7 @@ export default function MainContainer(props: Props) {
     <ServerStateContext.Provider value={{ serverState, setServerState }}>
       <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
         <PageHelmet title={title} href={href} />
-        <div className={`grid h-auto ${darkMode && "dark"}`}>
+        <div className={`grid h-auto${darkMode ? " dark" : ""}`}>
           <div className={"dark:bg-neutral-900 dark:text-white"}>
             {!is404 && <Navbar />}
             {props.children}
