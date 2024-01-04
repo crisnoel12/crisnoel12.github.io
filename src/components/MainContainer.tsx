@@ -17,11 +17,15 @@ interface Props {
 }
 
 export default function MainContainer(props: Props) {
-  const [darkMode, setDarkMode] = useState<boolean>(darkModeInitState);
+  const [darkMode, setDarkMode] = useState<boolean | null>(null);
   const [serverState, setServerState] = useState<ServerState>({
     submitting: false,
     response: null,
   });
+
+  useEffect(() => {
+    setDarkMode(darkModeInitState);
+  }, []);
 
   useEffect(() => {
     if (serverState.response) {

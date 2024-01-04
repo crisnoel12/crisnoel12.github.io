@@ -44,12 +44,10 @@ export const setLocalStorageItem = (key: string, value: any) => {
 
 // DARK MODE
 export const darkModeInitState = () => {
-  if (typeof window !== "undefined") {
-    const darkModeSystem = window.matchMedia("(prefers-color-scheme: dark)");
+  const darkModeSystem = window.matchMedia("(prefers-color-scheme: dark)");
 
-    return JSON.parse(window.localStorage.darkMode || !window.localStorage.hasOwnProperty("darkMode") &&
-    darkModeSystem.matches);
-  }
+  return JSON.parse(window.localStorage.darkMode || !window.localStorage.hasOwnProperty("darkMode") &&
+  darkModeSystem.matches);
 }
 
 export const toggleDarkMode = (setDarkMode: React.Dispatch<React.SetStateAction<boolean>>, darkMode: boolean) => {
