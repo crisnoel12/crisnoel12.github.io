@@ -4,6 +4,8 @@ import React from 'react';
 import { ServerState } from '../Types';
 import { toast } from 'react-toastify';
 
+const isBrowser = typeof window !== "undefined";
+
 interface SortObj {
   [key: string]: any
   createdAt: string | number | Date
@@ -31,13 +33,13 @@ export const estimatedReadTime = (richText: string) => {
 }
 
 export const getLocalStorageItem = (item: string) => {
-  if (typeof window !== 'undefined') {
+  if (isBrowser) {
     return window.localStorage.getItem(item);
   }
 }
 
 export const setLocalStorageItem = (key: string, value: any) => {
-  if (typeof window !== 'undefined') {
+  if (isBrowser) {
     return window.localStorage.setItem(key, value);
   }
 }

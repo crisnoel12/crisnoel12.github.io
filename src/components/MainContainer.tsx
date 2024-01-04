@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function MainContainer(props: Props) {
-  const [darkMode, setDarkMode] = useState<boolean | null>(null);
+  const [darkMode, setDarkMode] = useState<boolean>();
   const [serverState, setServerState] = useState<ServerState>({
     submitting: false,
     response: null,
