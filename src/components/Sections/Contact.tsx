@@ -112,7 +112,7 @@ const Contact: React.FC = () => {
   ];
 
   const contactFieldClassName =
-    "w-full mb-3 p-5 bg-neutral-200 dark:bg-neutral-800 border-solid border-b-2 border-neutral-500 rounded";
+    "w-full mb-3 p-5 bg-neutral-200 dark:bg-neutral-800 rounded focus:border-2 focus:border-primary focus:outline-none";
 
   return (
     <HomePageSection title={"contact"} noDivider>
